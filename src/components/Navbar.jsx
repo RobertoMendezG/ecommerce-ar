@@ -14,13 +14,13 @@ const Navbar = () => {
     <nav>
         <div className="container flex justify-between items-center py-0">
             {/*logo*/}
-            <div className="text-2xl flex items-center gap-2 font-bold py-8 uppercase">
+            <div className="text-2xl flex text-white items-center gap-2 font-bold py-8 uppercase">
                 <SiDigikeyelectronics />
                 <p>Electronicos</p>
             </div>
             {/*menu*/}
             <div className="hidden md:block">
-                <ul className="flex items-center gap-6 text-gray-600">
+                <ul className="flex items-center gap-6 text-white">
                     {
                         NavbarMenu.map((item) => {
                             return <li key={item.id}>
