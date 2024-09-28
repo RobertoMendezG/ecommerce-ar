@@ -11,7 +11,7 @@ const Navbar = () => {
     const [open,setOpen]= React.useState(false);
     return( 
         <>
-    <nav>
+    <nav >
         <div className="container flex justify-between items-center py-0">
             {/*logo*/}
             <div className="text-2xl flex text-white items-center gap-2 font-bold py-8 uppercase">

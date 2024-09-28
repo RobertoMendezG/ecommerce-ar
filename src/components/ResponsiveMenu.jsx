@@ -24,5 +24,4 @@ export const ResponsiveMenu = ({ open }) => {
             )
         }
     </AnimatePresence>
-
 };

@@ -10,7 +10,9 @@ function App() {
       <Navbar  />
       </div>
       <Banner/>
+      <div className="card">
       <Card/>
+      </div>
       <div className="overflow-x-hidden bg-blue-900 text-white">
         <div className="top-3">
       <Footer/>
