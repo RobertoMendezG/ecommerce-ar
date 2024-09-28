@@ -31,7 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
             {/*iconos*/}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-white">
                 <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
                     <CiSearch className="text-2xl" />
                 </button>

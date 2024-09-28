@@ -12,7 +12,9 @@ function App() {
       <Banner/>
       <Card/>
       <div className="overflow-x-hidden bg-blue-900 text-white">
+        <div className="top-3">
       <Footer/>
+      </div>
     </div>
     </>
   )

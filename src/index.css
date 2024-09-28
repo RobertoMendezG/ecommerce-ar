@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 
+@layer utilities{
+    .banner-bg-color{
+        @apply bg-gradient-to-r from-slate-300/80 to-slate-200 dark:from-gray-900 dark:to-gray-800 dark:text-white;
+    }
+}
