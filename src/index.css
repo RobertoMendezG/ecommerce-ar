@@ -1,12 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 
+
+
+@layer base{
+    body{
+        font-family: "Lexend", sans-serif;
+    }
+}
+
+
+
 @layer utilities{
     .banner-bg-color{
-        @apply bg-gradient-to-r from-red-700/80 to-red-500 dark:from-gray-900 dark:to-gray-800 dark:text-white;
+        @apply bg-gradient-to-r from-violet-700/80 to-red-500 dark:from-gray-900 dark:to-gray-800 dark:text-white;
+    }
+
+    
+
+    .badge{
+        @apply 
+        px-3 py-1 rounded-full text-xs bg-gray-100
+    }
+
+    .product-title{
+        @apply font-semibold text-2xl
+        overflow-ellipsis overflow-hidden whitespace-nowrap
+    }
+
+    .descuento-product {
+        @apply
+        bg-green-400 px-1.5 py-0.5 rounded-md text-xs
+        text-white
+    }
+
+    .button-primary{
+        @apply bg-violet-700/80 hover:bg-violet-500/90 px-6 py-2
+        rounded-md text-white font-medium tracking-wider transition
+    }
+
+    .button-icon{
+        @apply flex-grow flex justify-center items-center bg-gray-300/60 hover:bg-gray-300/80 transition rounded-md
     }
 
     

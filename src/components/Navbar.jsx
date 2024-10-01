@@ -24,7 +24,7 @@ const Navbar = () => {
                     {
                         NavbarMenu.map((item) => {
                             return <li key={item.id}>
-                                <a href={item.link} className="incline-block py-1 px-3 hover:text-primary font-semibold">{item.title}</a>
+                                <a href={item.link} className="incline-block py-1 px-3 hover:text-blue-800 font-semibold">{item.title}</a>
                             </li>;
                         })
                     }
@@ -32,13 +32,13 @@ const Navbar = () => {
             </div>
             {/*iconos*/}
             <div className="flex items-center gap-4 text-white">
-                <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
+                <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                     <CiSearch className="text-2xl" />
                 </button>
-                <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
+                <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                     <CiShoppingCart className="text-2xl" />
                 </button>
-                <button className="hover:bg-primary text-primary font-semibold hover:text-white rounded-md border-2 border-primary px-6 py2 duration-200 hidden md:block">Login</button>
+                <button className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py2 duration-200 hidden md:block">Login</button>
             </div>
             {/*movil hamburger*/}
             <div className="md:hidden "onClick={()=>

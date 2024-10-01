@@ -6,17 +6,19 @@ import Banner from "./components/Banner";
 function App() {
   return (
     <>
-    <div className="overflow-x-hidden bg-blue-900">
+    <div className="bg-gray-100">
+    <div className="overflow-x-hidden bg-violet-500">
       <Navbar  />
       </div>
       <Banner/>
       <div className="card">
       <Card/>
       </div>
-      <div className="overflow-x-hidden bg-blue-900 text-white">
+      <div className="overflow-x-hidden bg-violet-500 text-white">
         <div className="top-3">
       <Footer/>
       </div>
+    </div>
     </div>
     </>
   )
