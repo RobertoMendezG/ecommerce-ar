@@ -1,26 +1,23 @@
-import Navbar from "./components/Navbar";
-import Card from "./components/Card";
-import Footer from "./components/Footer";
-import Banner from "./components/Banner";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+import HomePage from "./pages/home"
+import DetailProduct from "./pages/DetailProduct"
+
 
 function App() {
   return (
-    <>
-    <div className="bg-gray-100">
-    <div className="overflow-x-hidden bg-violet-500">
-      <Navbar  />
-      </div>
-      <Banner/>
-      <div className="card">
-      <Card/>
-      </div>
-      <div className="overflow-x-hidden bg-violet-500 text-white">
-        <div className="top-3">
-      <Footer/>
-      </div>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/*" element={<DetailProduct/>} />
+        </Routes>
+        </Router>      
     </div>
-    </div>
-    </>
   )
 }
 
