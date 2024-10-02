@@ -14,7 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/*" element={<DetailProduct/>} />
+          <Route path="/pages/DetailProduct.jsx" element={<DetailProduct/>} />
+          
         </Routes>
         </Router>      
     </div>
