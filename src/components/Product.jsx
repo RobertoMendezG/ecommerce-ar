@@ -1,34 +1,36 @@
 
 import React from "react";
+import { FaCartPlus } from "react-icons/fa";
+
 
 
 const Product = () => {
-    return <main className="grid grid-cols-1 md-grid-cols-2 gap-8">
-        <section>Imagen</section>
+    return( 
         <section className="container mx-auto px-4 ">
             <h2 className="mb-4 text-3xl font-bold">Sansumg pro S23</h2>
-            <p className="mb-5 text-dark-grayish-blue">
+            <p className="mb-5 text-gray-400">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatibus delectus quam! 
                 Sed itaque assumenda ex nisi tenetur. Adipisci corporis atque labore, eius pariatur libero 
                 amet deleniti eaque sunt obcaecati.
             </p>
-
-            <p>
-                <span>$1300.00</span>
-                <span>10%</span>
-            </p>
-            <p>$1800.99</p>
-            <div>
-                <div>
-                    <button>-</button>
-                    <span>0</span>
-                    <button>+</button>
+            <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
+            
+                <span className="text-3xl">$1300.00</span>
+                <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">10%</span>
+           
+            <span className="text-right text-lg text-gray-300 line-through">$1800.99</span>
+            </div>
+            <div className="grid grid-cols-3 font-bold">
+                <div className="col-span-3 flex items-baseline justify-between rounded-md bg-gray-200 pb-3 py-2 px-5">
+                    <button className="text-3xl text-violet-600 ">-</button>
+                    <span className="text-xl">0</span>
+                    <button className="text-3xl text-violet-600">+</button>
                 </div>
-                <button>Agregar a carrito</button>
+                <button className="col-span-3 flex rounded-md bg-violet-600 hover:bg-violet-500 py-3 items-center gap-x-3 mt-5 justify-center text-white"> <FaCartPlus /> <span>Agregar a carrito</span></button>
             </div>
 
         </section>
-    </main>
+    );
 }
 
 export default Product;

@@ -44,7 +44,7 @@ const Navbar = () => {
             <div className="md:hidden "onClick={()=>
                 setOpen(!open)
             }>
-                <MdMenu className="text-4xl"/>
+                <MdMenu className="text-4xl text-white"/>
             </div>
         </div>
     
