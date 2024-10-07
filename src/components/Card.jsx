@@ -42,7 +42,7 @@ const Card = () => {
 
                         <div className="mt-5 flex gap-2">
                             <button className="button-primary">Agregar a carrito</button>
-                            <a href="/DetailProduct" className="button-icon" >
+                            <a href="../pages/DetailProduct.jsx" className="button-icon" >
                             <button ><FaEye /></button>
                             </a>
                         </div>
