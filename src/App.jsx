@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/pages/DetailProduct.jsx" element={<DetailProduct/>} />
+          <Route path="/*" element={<DetailProduct/>} />
           
         </Routes>
         </Router>      
