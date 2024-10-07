@@ -1,11 +1,6 @@
 
-
-
-
-
 import imagen1 from "../assets/celular2.jpg"
 import React from "react";
-import { FaCartPlus } from "react-icons/fa";
 
 
 const ImgDetail = () => {

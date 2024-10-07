@@ -4,8 +4,8 @@ import {
   Routes,
 } from "react-router-dom";
 
-import HomePage from "./pages/home"
-import DetailProduct from "./pages/DetailProduct"
+import HomePage from "./pages/home";
+import DetailProduct from "./pages/DetailProduct";
 
 
 function App() {

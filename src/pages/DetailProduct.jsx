@@ -6,7 +6,6 @@ import ImgDetail from "../components/ImgDetail";
 
 function DetailProduct() {
   return (
-    <>
     <div className="bg-gray-100">
     <div className="overflow-x-hidden bg-violet-500">
       <Navbar  />
@@ -24,7 +23,6 @@ function DetailProduct() {
       </div>
     </div>
     </div>
-    </>
   )
 }
 

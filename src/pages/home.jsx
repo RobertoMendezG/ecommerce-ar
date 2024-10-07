@@ -1,4 +1,8 @@
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+  } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
@@ -13,6 +17,7 @@ function HomePage() {
         <div className="overflow-x-hidden bg-violet-500">
           <Navbar />
         </div>
+        
         <Banner />
         <div className="card">
           <Card />
