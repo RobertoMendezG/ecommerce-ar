@@ -44,6 +44,7 @@ const Card = () => {
                         <div className="mt-5 flex gap-2">
                             <button className="button-primary">Agregar a carrito</button>
                             <Link to="/DetailProduct" className="button-icon" >
+                            
                             <button ><FaEye /></button>
                             </Link>
                         </div>
