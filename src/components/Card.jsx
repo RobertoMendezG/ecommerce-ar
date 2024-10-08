@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -10,7 +9,6 @@ const Card = () => {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-
         const productosRef = collection(db, "productos");
 
         getDocs(productosRef)
@@ -19,9 +17,7 @@ const Card = () => {
                     resp.docs.map((doc) => ({
                         ...doc.data(),
                         id: doc.id,
-                        
                     }))
-                    
                 );
             })
             .catch((error) => {
@@ -31,49 +27,44 @@ const Card = () => {
 
     return (
         <>
-            <div className="h-screen  bg-gray-100 flex items-center justify-center gap-10">
-                {productos.map((producto) => (
-                    
-                    <div key={producto.id} className="bg-white text-gray-700 w-72 min-h-[10rem] shadow-lg rounded-mb overflow-hidden rounded-3xl">
-                        <div className="w-60 h-68 p-4 flex sm:w-48 sm:h-58 ml-10">
-                            <img className="object-cover " src={producto.imagen} alt="" />
-                        </div>
+            <div className="h-screen bg-gray-100 flex items-center justify-center px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {productos.map((producto) => (
+                        <div key={producto.id} className="bg-white text-gray-700 w-full max-w-xs min-h-[10rem] shadow-lg rounded-3xl overflow-hidden flex flex-col">
+                            <div className="w-full h-48 sm:h-56 md:h-64 p-4 flex justify-center items-center">
+                                <img className="object-cover w-full h-full" src={producto.imagen} alt="" />
+                            </div>
 
-                        <div className="p-5 flex flex-col gap-3">
+                            <div className="p-3 sm:p-4 md:p-5 flex flex-col gap-3">
+                                <h2 className="product-title">
+                                    {producto.nombre}
+                                </h2>
 
-                            <h2 className="product-title">
-                                {producto.nombre}
-                            </h2>
-
-                            <div>
-                                <span className="text-xl font-bold">
-                                ${producto.precio}
-                               
-                                
-                                </span>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <span className="text-sm line-through opacity-50">
-                                    ${(producto.precio * (1 + producto.descuento / 100)).toFixed(2)}
+                                <div>
+                                    <span className="text-xl font-bold">
+                                        ${producto.precio}
                                     </span>
-                                    <span className="descuento-product">Descuento de {producto.descuento}%</span>
+                                    <div className="flex items-center gap-2 mt-1">
+                                        <span className="text-sm line-through opacity-50">
+                                            ${(producto.precio * (1 + producto.descuento / 100)).toFixed(2)}
+                                        </span>
+                                        <span className="descuento-product">Descuento de {producto.descuento}%</span>
+                                    </div>
+                                </div>
+
+                                <div className="mt-5 flex flex-col sm:flex-row gap-2">
+                                    <button className="button-primary w-full sm:w-auto">Agregar a carrito</button>
+                                    <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto">
+                                        <button><FaEye /></button>
+                                    </Link>
                                 </div>
                             </div>
-
-                            <div className="mt-5 flex gap-2">
-                                <button className="button-primary">Agregar a carrito</button>
-                                <Link to={`/DetailProduct/${producto.id}`} className="button-icon" >
-                                    <button ><FaEye /></button>
-                                </Link>
-                            </div>
-
                         </div>
-                    </div>
-                ))}
-
-
+                    ))}
+                </div>
             </div>
         </>
     );
-}
+};
 
 export default Card;
