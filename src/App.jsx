@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
 } from "react-router-dom";
@@ -11,13 +11,16 @@ import DetailProduct from "./pages/DetailProduct";
 function App() {
   return (
     <div>
-      <Router>
+      <BrowserRouter>
+
+
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/pages/DetailProduct.jsx" element={<DetailProduct/>} />
-          
+          <Route path="/DetailProduct" element={<DetailProduct/>} />
         </Routes>
-        </Router>      
+
+
+        </BrowserRouter> 
     </div>
   )
 }
