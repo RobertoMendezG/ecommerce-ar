@@ -1,8 +1,4 @@
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-  } from "react-router-dom";
+
 
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
@@ -10,6 +6,8 @@ import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 
 function HomePage() {
+
+  
 
   return (
     <>
