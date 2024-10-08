@@ -2,6 +2,7 @@
 import React,{ useEffect, useState } from "react";
 import imagen1 from "../assets/celular2.jpg"
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Card = () => {
 
@@ -84,7 +85,6 @@ const Card = () => {
                         <div className="mt-5 flex gap-2">
                             <button className="button-primary">Agregar a carrito</button>
                             <Link to="/DetailProduct" className="button-icon" >
-                            
                             <button ><FaEye /></button>
                             </Link>
                         </div>
@@ -125,7 +125,6 @@ const Card = () => {
                         <div className="mt-5 flex gap-2">
                             <button className="button-primary">Agregar a carrito</button>
                             <Link to="/DetailProduct" className="button-icon" >
-                            
                             <button ><FaEye /></button>
                             </Link>
                         </div>
@@ -163,10 +162,9 @@ const Card = () => {
 
                         {/* boton agregar producto */}
 
-                       <div className="mt-5 flex gap-2">
+                        <div className="mt-5 flex gap-2">
                             <button className="button-primary">Agregar a carrito</button>
                             <Link to="/DetailProduct" className="button-icon" >
-                            
                             <button ><FaEye /></button>
                             </Link>
                         </div>
