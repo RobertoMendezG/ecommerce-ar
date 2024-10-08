@@ -11,6 +11,7 @@ const Card = () => {
 
     useEffect(() => {
         const productosRef = collection(db, "productos");
+
         getDocs(productosRef)
             .then((resp) => {
                 setProductos(
