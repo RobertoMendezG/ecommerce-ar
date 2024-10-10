@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,11 +5,9 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase/config";
 
 const Card = () => {
-
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-
         const productosRef = collection(db, "productos");
 
         getDocs(productosRef)
@@ -19,9 +16,7 @@ const Card = () => {
                     resp.docs.map((doc) => ({
                         ...doc.data(),
                         id: doc.id,
-                        
                     }))
-                    
                 );
             })
             .catch((error) => {
@@ -30,50 +25,50 @@ const Card = () => {
     }, []);
 
     return (
-        <>
-            <div className="h-screen  bg-gray-100 flex items-center justify-center gap-10">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
                 {productos.map((producto) => (
-                    
-                    <div key={producto.id} className="bg-white text-gray-700 w-72 min-h-[10rem] shadow-lg rounded-mb overflow-hidden rounded-3xl">
-                        <div className="w-60 h-68 p-4 flex sm:w-48 sm:h-58 ml-10">
-                            <img className="object-cover " src={producto.imagen} alt="" />
+                    <div key={producto.id} className="bg-white text-gray-700 shadow-lg rounded-3xl overflow-hidden flex flex-col">
+                        {/* Contenedor de la Imagen */}
+                        <div className="w-full h-48 sm:h-56 md:h-64 p-4 flex justify-center items-center">
+                            <img className="object-cover w-full h-full rounded-t-3xl" src={producto.imagen} alt={producto.nombre} />
                         </div>
 
-                        <div className="p-5 flex flex-col gap-3">
-
-                            <h2 className="product-title">
+                        {/* Contenedor de la Información */}
+                        <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-3">
+                            {/* Nombre del Producto */}
+                            <h2 className="text-base md:text-lg lg:text-xl font-semibold">
                                 {producto.nombre}
                             </h2>
 
+                            {/* Precio del Producto */}
                             <div>
                                 <span className="text-xl font-bold">
-                                ${producto.precio}
-                               
-                                
+                                    ${producto.precio}
                                 </span>
                                 <div className="flex items-center gap-2 mt-1">
                                     <span className="text-sm line-through opacity-50">
-                                    ${(producto.precio * (1 + producto.descuento / 100)).toFixed(2)}
+                                        ${(producto.precio * (1 + producto.descuento / 100)).toFixed(2)}
                                     </span>
-                                    <span className="descuento-product">Descuento de {producto.descuento}%</span>
+                                    <span className="text-xs sm:text-sm text-red-500">
+                                        Descuento de {producto.descuento}%
+                                    </span>
                                 </div>
                             </div>
 
-                            <div className="mt-5 flex gap-2">
-                                <button className="button-primary">Agregar a carrito</button>
-                                <Link to={`/DetailProduct/${producto.id}`} className="button-icon" >
-                                    <button ><FaEye /></button>
+                            {/* Botones de Acción */}
+                            <div className="mt-5 flex flex-col sm:flex-row gap-2">
+                                <button className="button-primary w-full sm:w-auto">Agregar al carrito</button>
+                                <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto flex justify-center items-center">
+                                    <FaEye />
                                 </Link>
                             </div>
-
                         </div>
                     </div>
                 ))}
-
-
             </div>
-        </>
+        </div>
     );
-}
+};
 
 export default Card;
