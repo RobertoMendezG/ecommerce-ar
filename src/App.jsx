@@ -6,6 +6,8 @@ import {
 
 import HomePage from "./pages/home";
 import DetailProduct from "./pages/DetailProduct";
+import InciarS from "./pages/iniciarS";
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
       
           <Route path="/" element={<HomePage/>} />
           <Route path="/DetailProduct/:id" element={<DetailProduct/>} />
+          <Route path="/Login" element={<InciarS/>} />
         </Routes>
 
 

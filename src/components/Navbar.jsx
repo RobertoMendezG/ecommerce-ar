@@ -1,5 +1,5 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 import { NavbarMenu } from "../mockData/data";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
@@ -38,7 +38,11 @@ const Navbar = () => {
                 <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                     <CiShoppingCart className="text-2xl" />
                 </button>
-                <button className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py2 duration-200 hidden md:block">Login</button>
+                <button className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py2 duration-200 hidden md:block">
+                <Link to={"/Login"} >
+                                    Login
+                                </Link>
+                </button>
             </div>
             {/*movil hamburger*/}
             <div className="md:hidden "onClick={()=>

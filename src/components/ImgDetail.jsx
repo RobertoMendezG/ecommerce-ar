@@ -26,6 +26,7 @@ const ImgDetail = ({ productId }) => {
                 );
             })
     }, [productId]);
+    
 
     return (
 <section className="grid md:grid-cols-1 md:gap-8">
@@ -33,15 +34,19 @@ const ImgDetail = ({ productId }) => {
             <>
             <div className="col-span-4">
             <img src={items.imagen} alt="" className="ml-20" width={"300px"} height={"100px"} />
+            
         </div>
         </>
         ) : (
             <p>Product not found.</p>
           )}
 
+
         
             
         </section>
+
+        
 
 
     );
