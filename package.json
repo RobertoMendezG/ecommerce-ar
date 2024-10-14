@@ -12,7 +12,7 @@
   "dependencies": {
     "aframe": "^1.6.0",
     "ar.js": "^2.2.2",
-    "firebase": "^10.14.0",
+    "firebase": "^10.14.1",
     "framer-motion": "^11.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -7,6 +7,7 @@ import {
 import HomePage from "./pages/home";
 import DetailProduct from "./pages/DetailProduct";
 import InciarS from "./pages/iniciarS";
+import Regist from "./pages/Regist";
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/DetailProduct/:id" element={<DetailProduct/>} />
           <Route path="/Login" element={<InciarS/>} />
+          <Route path="/Register" element={<Regist/>} />
         </Routes>
 
 

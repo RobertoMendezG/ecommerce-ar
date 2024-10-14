@@ -6,6 +6,7 @@ import db from "../firebase/config";
 
 const Card = () => {
     const [productos, setProductos] = useState([]);
+    
 
     useEffect(() => {
         const productosRef = collection(db, "productos");
@@ -58,7 +59,7 @@ const Card = () => {
 
                             {/* Botones de Acción */}
                             <div className="mt-5 flex flex-col sm:flex-row gap-2">
-                                <button className="button-primary w-full sm:w-auto">Agregar al carrito</button>
+                                <button onClick={() => addToCart(producto)} className="button-primary w-full sm:w-auto">Agregar al carrito</button>
                                 <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto flex justify-center items-center">
                                     <FaEye />
                                 </Link>
