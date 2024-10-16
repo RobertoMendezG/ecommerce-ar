@@ -31,8 +31,8 @@ const Card = () => {
                 {productos.map((producto) => (
                     <div key={producto.id} className="bg-white text-gray-700 shadow-lg rounded-3xl overflow-hidden flex flex-col">
                         {/* Contenedor de la Imagen */}
-                        <div className="w-full h-48 sm:h-56 md:h-64 p-4 flex justify-center items-center">
-                            <img className="object-cover w-full h-full rounded-t-3xl" src={producto.imagen} alt={producto.nombre} />
+                        <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 2xl:h-96 p-4 sm:p-6 md:p-8 flex justify-center items-center">
+                             <img className="object-cover w-full h-full max-w-full max-h-full rounded-t-3xl sm:rounded-t-2xl md:rounded-t-xl lg:rounded-t-lg" src={producto.imagen} alt={producto.nombre} />
                         </div>
 
                         {/* Contenedor de la Información */}
