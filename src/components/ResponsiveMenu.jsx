@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"
+import { FaUser } from "react-icons/fa";
 
 export const ResponsiveMenu = ({ open }) => {
     return <AnimatePresence mode="wait">
@@ -14,10 +16,17 @@ export const ResponsiveMenu = ({ open }) => {
 
                     <div className="text-xl font-semibold uppercase bg-violet-700 text-white py-10 m-6 rounded-3xl">
                         <ul className="flex flex-col justify-center items-center gap-10 text-white">
-                            <li><a href="">Inicio</a></li>
+                            <li><a href="/">
+                            <Link to={"/"} >
+                                    Inicio
+                                </Link></a></li>
                             <li><a href="">Productos</a></li>
                             <li><a href="">Ofertas</a></li>
-                            <li><a href="">Conocenos</a></li>
+                            <li> <a>
+                            <Link to={"/Login"} >
+                            Inicia sesion
+                            </Link>
+                        </a></li>
                         </ul>
                     </div>
                 </motion.div>

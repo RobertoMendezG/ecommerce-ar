@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import auth from "../firebase/config";
@@ -7,8 +6,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
-    
-    
+
+
     async function registerUser(email, user, password) {
         const infoUser = await createUserWithEmailAndPassword(auth, email, password).then((userFirebase) => {
             return userFirebase;
@@ -31,8 +30,6 @@ const Register = () => {
         console.log("submit", email, user, password);
         registerUser(email, user, password);
     }
-
-
 
     return (
         <>
