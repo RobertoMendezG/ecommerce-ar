@@ -6,7 +6,9 @@ function Admin() {
 
   return (
     <>
+    
       <Update />
+
     </>
   )
 }

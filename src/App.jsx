@@ -24,7 +24,11 @@ function App() {
           <Route path="/DetailProduct/:id" element={<DetailProduct/>} />
           <Route path="/Login" element={<InciarS/>} />
           <Route path="/Register" element={<Regist/>} />
+
+
+          {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
+
         </Routes>
 
 

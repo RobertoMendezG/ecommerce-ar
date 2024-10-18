@@ -40,6 +40,7 @@ const Update = () => {
                 value={productPrice}
                 onChange={(e) => setProductPrice(e.target.value)}
             />
+            
             <input
                 type="text"
                 placeholder="URL imagen de producto"
