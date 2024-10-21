@@ -1,4 +1,4 @@
-import Update from "../components/UpdateProduct";
+import Add from "../components/AddProduct";
 
 function Admin() {
 
@@ -6,8 +6,8 @@ function Admin() {
 
   return (
     <>
-    
-      <Update />
+
+      <Add />
 
     </>
   )

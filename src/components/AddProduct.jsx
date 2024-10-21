@@ -3,7 +3,7 @@ import db  from "../firebase/config"; // Asegúrate de importar tu configuració
 import { collection, addDoc } from "firebase/firestore";
 
 
-const Update = () => {
+const Add = () => {
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
     const [productDescr, setProductDescr] = useState("");
@@ -64,4 +64,4 @@ const Update = () => {
     );
 };
 
-export default Update;
+export default Add;
