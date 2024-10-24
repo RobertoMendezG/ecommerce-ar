@@ -35,7 +35,7 @@ const Navbar = () => {
                             </button>
                             </li>
                             <li><button className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
-                                <Link to={"/AddProduct"} >
+                                <Link to={"/"} >
                                     Productos
                                 </Link>
                             </button>
