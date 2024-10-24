@@ -13,6 +13,11 @@ const Footer = () => {
         <lu>
             <li>Servicios</li>
             <li>Inicio</li>
+             <li> <a>
+                            <Link to={"/AddProduct"} >
+                            Agregar Producto
+                            </Link>
+                        </a></li>
             <li>Productos</li>
             <li>Ofertas</li>
             <li>Conocenos</li>
