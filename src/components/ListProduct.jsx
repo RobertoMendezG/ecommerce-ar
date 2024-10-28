@@ -57,7 +57,7 @@ const ListProducts = () => {
       </Link>
       <table className="table-auto w-full bg-violet-400">
         <thead>
-          <tr className="bg-violet-600 text-white text-left font-medium">
+        <tr className="bg-[#F5F5DC] text-black text-left font-medium">
             <th className="px-4 py-3 text-center">Nombre</th>
             <th className="px-4 py-3 text-center">Precio</th>
             <th className="px-4 py-3 text-center">Imagen</th>
