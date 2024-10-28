@@ -43,7 +43,7 @@ const ListProducts = () => {
 
   return (
     <div className="container mx-auto p-4 bg-beige min-h-screen">
-      <h2 className="text-2xl font-bold mb-4 text-center">Productos</h2>
+      <h1 className="text-2xl font-bold mb-4 text-center">Productos</h1>
       <div className="flex justify-center mb-4">
         <Link to={"/admin"}>
           <button className="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
