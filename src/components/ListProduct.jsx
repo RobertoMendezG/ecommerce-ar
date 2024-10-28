@@ -26,7 +26,6 @@ const ListProducts = () => {
 
   //funcion para eliminar productos
  
-
   const [showModal, setShowModal] = useState(false);
   const [productIdToDelete, setProductIdToDelete] = useState(null);
 
@@ -43,8 +42,6 @@ const ListProducts = () => {
   const handleCancelDelete = () => {
     setShowModal(false);
   };
-
-
 
 
   return (
@@ -79,6 +76,7 @@ const ListProducts = () => {
               <button className="px-2 py-1 bg-blue-500 hover:bg-blue-400 text-white text-center items-center rounded " onClick={()=>updateProduct(product.id)}>Editar</button>
               <button className="px-2 py-1 bg-red-500 hover:bg-red-400 text-white text-center items-center rounded" onClick={() => handleDelete(product.id)}>Eliminar</button>
 
+{/* alert para confirmar eliminacion */}
     {showModal && (
       <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white rounded-lg p-6">   
@@ -95,6 +93,7 @@ const ListProducts = () => {
         </div>
       </div>
 )}
+{/* alert para confirmar eliminacion */}
             </td>
           </tr>
         ))}
