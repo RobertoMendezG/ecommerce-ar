@@ -55,7 +55,7 @@ const ListProducts = () => {
       <Link to={"/admin"} >
         <button><IoIosAddCircle /></button>
       </Link>
-      <table className="table-auto w-full bg-violet-400">
+      <table className="table-auto w-full bg-slate-300">
         <thead>
           <tr className="bg-violet-600 text-white text-left font-medium">
             <th className="px-4 py-3 text-center">Nombre</th>

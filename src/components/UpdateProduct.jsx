@@ -10,7 +10,6 @@ const UpdateProduct = ({ productId }) => {
     const [items, setItem] = useState(null);
     const  id = useParams().id;
     useEffect(() => {
-
         const docRef = doc(db, "productos",id);
 
         getDoc(docRef)
@@ -25,7 +24,6 @@ const UpdateProduct = ({ productId }) => {
                 );
             })
     }, [productId]);
-
 
     return (
 
