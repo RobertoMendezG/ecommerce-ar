@@ -57,7 +57,7 @@ const ListProducts = () => {
       </Link>
       <table className="table-auto w-full bg-violet-400">
         <thead>
-        <tr className="bg-[#F5F5DC] text-black text-left font-medium">
+          <tr className="bg-violet-600 text-white text-left font-medium">
             <th className="px-4 py-3 text-center">Nombre</th>
             <th className="px-4 py-3 text-center">Precio</th>
             <th className="px-4 py-3 text-center">Imagen</th>
@@ -78,22 +78,11 @@ const ListProducts = () => {
               <td className="px-4 py-3 text-center">{product.descuento}</td>
               <td className="px-4 py-3">
 
-              <div className="flex space-x-2"> {/* Contenedor para mantener botones */}
-                  <button className=
-                  <button
-                "w-24 px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white text-center rounded">
-                    <Link to={`/ProductEdit/${product.id}`} className="block w-full h-full">Editar</Link>
-                  </button>
-                  
-                  </button>
-                 
-                <button
-                    className="w-24 px-4 py-2 bg-red-500 hover:bg-red-400 text-white text-center rounded"
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    Eliminar
-                  </button>
-              </div>
+                <button className="px-2 py-1 bg-blue-500 hover:bg-blue-400 text-white text-center items-center rounded">
+                  <Link to={`/ProductUpdate/${product.id}`} className=""> Editar</Link>
+                </button>
+                <button className="px-2 py-1 bg-red-500 hover:bg-red-400 text-white text-center items-center rounded" onClick={() => handleDelete(product.id)}>Eliminar</button>
+
                 {/* alert para confirmar eliminacion */}
                 {showModal && (
                   <div className="fixed inset-0 flex items-center justify-center z-50">

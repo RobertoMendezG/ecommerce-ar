@@ -10,6 +10,7 @@ import InciarS from "./pages/iniciarS";
 import Regist from "./pages/Regist";
 import Admin from "./pages/admin";
 import ProductList from "./pages/ProductList";
+import ProductUpdate from "./pages/ProductUpdate";
 
 
 
@@ -30,6 +31,7 @@ function App() {
           {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
           <Route path="/ProductList" element={<ProductList/>} />
+          <Route path="/ProductUpdate/:id" element={<ProductUpdate/>} />
 
         </Routes>
 
