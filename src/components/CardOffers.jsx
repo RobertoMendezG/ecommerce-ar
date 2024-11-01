@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase/config";
 
-const Card = () => {
+const CardOffers = () => {
     const [productos, setProductos] = useState([]);
     
 
@@ -28,7 +28,7 @@ const Card = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
-                {productos.map((producto) => (
+            {productos.filter(producto => producto.descuento > 0).map((producto) => (
                     <div key={producto.id} className="bg-white text-gray-700 shadow-lg rounded-3xl overflow-hidden flex flex-col">
                         {/* Contenedor de la Imagen */}
                         <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 2xl:h-96 p-4 flex justify-center items-center">
@@ -70,9 +70,14 @@ const Card = () => {
                         </div>
                     </div>
                 ))}
+
+
+
+
+
             </div>
         </div>
     );
 };
 
-export default Card;
+export default CardOffers;
