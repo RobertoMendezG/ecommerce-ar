@@ -8,11 +8,12 @@ import { ResponsiveMenu } from "../components/ResponsiveMenu";
 import db from "../firebase/config";
 import { getAuth, signOut } from "firebase/auth";
 
-
 const Navbar = () => {
 
 
+    //constante para el buscador
     const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
+    //constante para el buscador
 
 
     const [open, setOpen] = React.useState(false);

@@ -21,7 +21,10 @@ export const ResponsiveMenu = ({ open }) => {
                                     Inicio
                                 </Link></a></li>
                             <li><a href="">Productos</a></li>
-                            <li><a href="">Ofertas</a></li>
+                            <li><a>
+                            <Link to={"/HomeOffers"} >
+                                    Ofertas
+                                </Link></a></li>
                             <li> <a>
                             <Link to={"/Login"} >
                             Inicia sesion
