@@ -12,6 +12,8 @@ import { getAuth, signOut } from "firebase/auth";
 const Navbar = () => {
 
 
+    const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
+
 
     const [open, setOpen] = React.useState(false);
     return (
@@ -46,7 +48,7 @@ const Navbar = () => {
                                 </Link>
                             </button>
                             </li>
-                            <li><button  className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
+                            <li><button className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
                                 <Link to={"/"} >
                                     cerrar sesion
                                 </Link>
@@ -57,7 +59,8 @@ const Navbar = () => {
                     </div>
                     {/*iconos*/}
                     <div className="flex items-center gap-4 text-white">
-                        <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
+                        <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200"
+                            onClick={() => setIsSearchBarVisible(!isSearchBarVisible)}>
                             <CiSearch className="text-3xl" />
                         </button>
                         <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
@@ -77,6 +80,16 @@ const Navbar = () => {
                     </div>
                 </div>
 
+
+                {isSearchBarVisible && (
+   <div class="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">  <div class="flex items-center p-2">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+    <input type="text" placeholder="Buscar..." class="flex-1 ml-3 focus:outline-none" />
+  </div>
+</div>
+)}
 
 
 
