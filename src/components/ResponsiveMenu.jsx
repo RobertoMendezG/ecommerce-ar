@@ -20,7 +20,7 @@ export const ResponsiveMenu = ({ open }) => {
                             <Link to={"/"} >
                                     Inicio
                                 </Link></a></li>
-                            <li><a href="">Productos</a></li>
+                            <li><a href="">Conocenos</a></li>
                             <li><a>
                             <Link to={"/HomeOffers"} >
                                     Ofertas

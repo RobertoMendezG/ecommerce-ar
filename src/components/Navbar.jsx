@@ -51,7 +51,7 @@ const Navbar = () => {
                             </li>
                             <li><button className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
                                 <Link to={"/"} >
-                                    cerrar sesion
+                                    Conocenos
                                 </Link>
                             </button>
                             </li>
@@ -82,15 +82,7 @@ const Navbar = () => {
                 </div>
 
 
-                {isSearchBarVisible && (
-   <div class="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">  <div class="flex items-center p-2">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    </svg>
-    <input type="text" placeholder="Buscar..." class="flex-1 ml-3 focus:outline-none" />
-  </div>
-</div>
-)}
+                
 
 
 
