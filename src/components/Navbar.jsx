@@ -60,10 +60,7 @@ const Navbar = () => {
                     </div>
                     {/*iconos*/}
                     <div className="flex items-center gap-4 text-white">
-                        <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200"
-                            onClick={() => setIsSearchBarVisible(!isSearchBarVisible)}>
-                            <CiSearch className="text-3xl" />
-                        </button>
+                        
                         <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                             <CiShoppingCart className="text-3xl" />
                         </button>
