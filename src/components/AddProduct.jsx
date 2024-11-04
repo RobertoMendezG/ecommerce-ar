@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import db from "../firebase/config"; // Asegúrate de importar tu configuración de Firebase
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, where, getDocs, query } from "firebase/firestore";
 
 const Add = () => {
     const [productName, setProductName] = useState("");
@@ -8,17 +8,35 @@ const Add = () => {
     const [productDescr, setProductDescr] = useState("");
     const [productImage, setProductImage] = useState("");
     const [productDescu, setProductDescu] = useState("");
+    const [showAlertSusses, setShowAlertSusses] = useState(false);
+    const [showAlertError, setShowAlertError] = useState(false);
+
 
     const handleAddProduct = async () => {
         try {
-            const docRef = await addDoc(collection(db, "productos"), {
-                nombre: productName,
-                precio: productPrice,
-                imagen: productImage,
-                descripcion: productDescr,
-                descuento: productDescu,
-            });
-            console.log("Producto agregado con ID: ", docRef.id);
+
+            const productRef = collection(db, "productos");
+            const q = query(productRef, where("nombre", "==", productName)); // Query producto nombre
+
+            const querySnapshot = await getDocs(q);
+
+
+            if (querySnapshot.empty) {
+                const docRef = await addDoc(collection(db, "productos"), {
+                    nombre: productName,
+                    precio: productPrice,
+                    imagen: productImage,
+                    descripcion: productDescr,
+                    descuento: productDescu,
+                });
+                console.log("Producto agregado con ID: ", docRef.id);
+                setShowAlertSusses(true); // alert
+            } else {
+
+                // Si existe, mostrar alerta de producto duplicado
+                console.log("Producto ya existe!");
+                setShowAlertError(true);
+            }
         } catch (e) {
             console.error("Error al agregar producto: ", e);
         }
@@ -89,9 +107,25 @@ const Add = () => {
                                 Agregar Producto
                             </button>
                         </div>
+
                     </form>
                 </div>
+                {/* Alert message (conditionally rendered) */}
+                {showAlertSusses && (
+                    <div className="mt-4 alert alert-success">
+                        Producto agregado exitosamente!
+                    </div>
+                )}
             </div>
+
+            <div className="fixed top-0 left-0 right-0 z-10 flex items-center justify-center p-4">
+                {showAlertError && (
+                    <div className="bg-red-500 text-white px-4 py-3 rounded-md">
+                        El producto ya existe.
+                    </div>
+                )}
+            </div>
+
         </>
     );
 };
