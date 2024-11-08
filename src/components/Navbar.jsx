@@ -1,22 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { SiDigikeyelectronics } from "react-icons/si";
 import { MdMenu } from "react-icons/md";
 import { ResponsiveMenu } from "../components/ResponsiveMenu";
-import db from "../firebase/config";
-import { getAuth, signOut } from "firebase/auth";
+import { auth } from '../firebase/config'; 
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
 
+    const [open, setOpen] = useState(false);
+    const [user, setUser ] = useState(null);
 
-    //constante para el buscador
-    const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
-    //constante para el buscador
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUser (user);
+            } else {
+                setUser (null);
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            console.log('Sesión cerrada');
+        } catch (error) {
+            console.error('Error al cerrar sesión: ', error);
+        }
+    };
 
 
-    const [open, setOpen] = React.useState(false);
     return (
         <>
             <nav >
@@ -64,11 +81,21 @@ const Navbar = () => {
                         <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                             <CiShoppingCart className="text-3xl" />
                         </button>
-                        <button className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py2 duration-200 hidden md:block">
-                            <Link to={"/Login"} >
+                        {user ? (
+                            <>
+                                <span className="text-white">{user.email}</span>
+                                <button
+                                    className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py-2 duration-200"
+                                    onClick={handleLogout}
+                                >
+                                    Log out
+                                </button>
+                            </>
+                        ) : (
+                            <Link to={"/Login"} className="hover:bg-blue-800 text-white font-semibold hover:text-white rounded-md border-2 border-white px-6 py-2 duration-200">
                                 Login
                             </Link>
-                        </button>
+                        )}
                     </div>
                     {/*movil hamburger*/}
                     <div className="md:hidden " onClick={() =>
