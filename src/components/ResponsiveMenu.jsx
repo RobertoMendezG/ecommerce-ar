@@ -17,19 +17,25 @@ export const ResponsiveMenu = ({ open }) => {
                     <div className="text-xl font-semibold uppercase bg-violet-700 text-white py-10 m-6 rounded-3xl">
                         <ul className="flex flex-col justify-center items-center gap-10 text-white">
                             <li><a href="/">
-                            <Link to={"/"} >
+                                <Link to={"/"} >
                                     Inicio
                                 </Link></a></li>
-                            <li><a href="">Conocenos</a></li>
+
                             <li><a>
-                            <Link to={"/HomeOffers"} >
+                                <Link to={"/HomeOffers"} >
                                     Ofertas
-                                </Link></a></li>
+                                </Link>
+                            </a></li>
+                            <li><a>
+                                <Link to={"/Conocenos"} >
+                                    Conocenos
+                                </Link>
+                            </a></li>
                             <li> <a>
-                            <Link to={"/Login"} >
-                            Inicia sesion
-                            </Link>
-                        </a></li>
+                                <Link to={"/Login"} >
+                                    Inicia sesion
+                                </Link>
+                            </a></li>
                         </ul>
                     </div>
                 </motion.div>

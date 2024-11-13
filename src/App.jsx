@@ -12,6 +12,7 @@ import Admin from "./pages/admin";
 import ProductList from "./pages/ProductList";
 import ProductUpdate from "./pages/ProductUpdate";
 import HomeOffers from "./pages/Offers";
+import Conocenos from "./pages/Conocenos";
 
 
 
@@ -28,6 +29,8 @@ function App() {
           <Route path="/Login" element={<InciarS/>} />
           <Route path="/Register" element={<Regist/>} />
           <Route path="/HomeOffers" element={<HomeOffers/>} />
+          <Route path="/Conocenos" element={<Conocenos/>} />
+          
 
           {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
