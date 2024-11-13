@@ -37,7 +37,9 @@ const Navbar = () => {
     return (
         <>
             <nav >
-                <div className="container flex justify-between items-center py-0">
+                {/*<div className="container flex justify-between items-center py-0">*/}
+                <div className="container flex flex-col sm:flex-row justify-between items-center py-4 sm:py-0">
+
                     {/*logo*/}
                     <div className="text-2xl sm:text-xl md:text-2xl lg:text-3xl flex text-white items-center gap-2 font-bold py-8 uppercase">
                         <SiDigikeyelectronics className="text-xl sm:text-lg md:text-xl lg:text-2xl" />
