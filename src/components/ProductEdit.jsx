@@ -4,8 +4,6 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const ProductEdit = () => {
-
-
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -30,48 +28,72 @@ const ProductEdit = () => {
         navigate('/ProductList');
     };
 
-    if (loading) return <div>Cargando...</div>;
+    if (loading) return <div className="text-center">Cargando...</div>;
 
     return (
-        <div>
-            <h2>Actualizar Producto</h2>
-            {/* Formulario para actualizar el producto */}
-            <input
-                type="text"
-                value={product.nombre}
-                onChange={(e) => setProduct({ ...product, nombre: e.target.value })}
-            />
-            <input
-                type="number"
-                value={product.precio}
-                onChange={(e) => setProduct({ ...product, precio: e.target.value })}
-            />
-            <input
-                type="text"
-                value={product.descripcion}
-                onChange={(e) => setProduct({ ...product, descripcion: e.target.value })}
-            />
-            <input
-                type="text"
-                value={product.imagen}
-                onChange={(e) => setProduct({ ...product, imagen: e.target.value })}
-            />
-            <input
-                type="text"
-                value={product.descripcion}
-                onChange={(e) => setProduct({ ...product, descripcion: e.target.value })}
-            />
-            <input
-                type="number"
-                value={product.descuento}
-                onChange={(e) => setProduct({ ...product, descuento: e.target.value })}
-            />
-            <button onClick={handleUpdate}>Actualizar</button>
+        <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md mt-10">
+            <h2 className="text-2xl font-semibold text-center mb-4">Actualizar Producto</h2>
+            <form>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        value={product.nombre}
+                        onChange={(e) => setProduct({ ...product, nombre: e.target.value })}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="precio">Precio</label>
+                    <input
+                        type="number"
+                        id="precio"
+                        value={product.precio}
+                        onChange={(e) => setProduct({ ...product, precio: e.target.value })}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="descripcion">Descripción</label>
+                    <input
+                        type="text"
+                        id="descripcion"
+                        value={product.descripcion}
+                        onChange={(e) => setProduct({ ...product, descripcion: e.target.value })}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="imagen">Imagen URL</label>
+                    <input
+                        type="text"
+                        id="imagen"
+                        value={product.imagen}
+                        onChange={(e) => setProduct({ ...product, imagen: e.target.value })}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="descuento">Descuento</label>
+                    <input
+                        type="number"
+                        id="descuento"
+                        value={product.descuento}
+                        onChange={(e) => setProduct({ ...product, descuento: e.target.value })}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                    />
+                </div>
+                <button
+                    type="button"
+                    onClick={handleUpdate}
+                    className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+                >
+                    Actualizar
+                </button>
+            </form>
         </div>
     );
 };
 
 export default ProductEdit;
-
-    
-
