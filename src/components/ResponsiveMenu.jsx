@@ -31,6 +31,11 @@ export const ResponsiveMenu = ({ open }) => {
                                     Conocenos
                                 </Link>
                             </a></li>
+                            <li><a>
+                                <Link to={"/ProductList"} >
+                                    admin
+                                </Link>
+                            </a></li>
                             <li> <a>
                                 <Link to={"/Login"} >
                                     Inicia sesion
