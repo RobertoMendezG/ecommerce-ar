@@ -1,19 +1,15 @@
-
-import UpdateProduct from "../components/UpdateProduct";
-
-import { useParams } from 'react-router-dom';
-
+import ProductEdit from "../components/ProductEdit";
 
 function ProductUpdate() {
 
-  const { id } = useParams();
   
+
   return (
-    <div className="bg-gray-100">
-    
-        <UpdateProduct productId={id} />
-      
-    </div>
+    <>
+
+      <ProductEdit />
+
+    </>
   )
 }
 
