@@ -37,6 +37,7 @@ const ListProducts = () => {
   const handleConfirmDelete = async () => {
     await deleteDoc(doc(db, "productos", productIdToDelete));
     setShowModal(false);
+    window.location.reload();
   };
 
   const handleCancelDelete = () => {
@@ -55,6 +56,7 @@ const ListProducts = () => {
       <Link to={"/admin"} >
         <button><IoIosAddCircle /></button>
       </Link>
+      <div className="overflow-x-auto">
       <table className="table-auto w-full bg-slate-300">
         <thead>
           <tr className="bg-violet-600 text-white text-left font-medium">
@@ -106,6 +108,7 @@ const ListProducts = () => {
           ))}
         </tbody>
       </table>
+      </div>
 
 
     </>

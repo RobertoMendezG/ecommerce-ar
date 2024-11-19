@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link , useNavigate} from 'react-router-dom';
-import { auth } from '../firebase/config'; 
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../firebase/config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Register = () => {
@@ -12,15 +12,20 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        setError(''); 
+        setError('');
 
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             console.log('Usuario registrado con éxito');
             alert('Usuario registrado con éxito');
-            navigate('/Login'); 
+            navigate('/Login');
         } catch (error) {
-            setError(error.message); 
+            // Manejo del error específico de correo ya en uso
+            if (error.code === 'auth/email-already-in-use') {
+                setError('El correo electrónico ya está en uso.');
+            } else {
+                setError(error.message);
+            }
         }
     };
 
@@ -71,10 +76,13 @@ const Register = () => {
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                     autoComplete="current-password"
+                                    minLength={8} 
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
+
+                        {error && <p className="text-red-500 text-sm">{error}</p>}
 
                         <div>
                             <button

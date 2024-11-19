@@ -44,79 +44,82 @@ const Add = () => {
 
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-                <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                        Agregar Producto
-                    </h2>
-                </div>
-
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-                    <form className="space-y-6">
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Nombre del producto"
-                                value={productName}
-                                onChange={(e) => setProductName(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="number"
-                                placeholder="Precio del producto"
-                                value={productPrice}
-                                onChange={(e) => setProductPrice(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="URL imagen de producto"
-                                value={productImage}
-                                onChange={(e) => setProductImage(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Descripción del producto"
-                                value={productDescr}
-                                onChange={(e) => setProductDescr(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="number"
-                                placeholder="Descuento del producto"
-                                value={productDescu}
-                                onChange={(e) => setProductDescu(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                        <div>
-                            <button
-                                type="button"
-                                onClick={handleAddProduct}
-                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >
-                                Agregar Producto
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-                {/* Alert message (conditionally rendered) */}
-                {showAlertSusses && (
-                    <div className="mt-4 alert alert-success">
-                        Producto agregado exitosamente!
+            <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md mt-10">
+                <h2 className="text-2xl font-semibold text-center mb-4">Agregar Producto</h2>
+                <form className="space-y-4">
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="nombre">Nombre</label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Nombre del producto"
+                            value={productName}
+                            onChange={(e) => setProductName(e.target.value)}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                        />
                     </div>
-                )}
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="precio">Precio</label>
+                        <input
+                            type="number"
+                            id="precio"
+                            placeholder="Precio del producto"
+                            value={productPrice}
+                            onChange={(e) => setProductPrice(e.target.value)}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="imagen">Imagen URL</label>
+                        <input
+                            type="text"
+                            id="imagen"
+                            placeholder="URL imagen de producto"
+                            value={productImage}
+                            onChange={(e) => setProductImage(e.target.value)}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="descripcion">Descripción</label>
+                        <input
+                            type="text"
+                            id="descripcion"
+                            placeholder="Descripción del producto"
+                            value={productDescr}
+                            onChange={(e) => setProductDescr(e.target.value)}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="descuento">Descuento</label>
+                        <input
+                            type="number"
+                            id="descuento"
+                            placeholder="Descuento del producto"
+                            value={productDescu}
+                            onChange={(e) => setProductDescu(e.target.value)}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+                        />
+                    </div>
+                    <button
+                        type="button"
+                        onClick={handleAddProduct}
+                        className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+                    >
+                        Agregar Producto
+                    </button>
+                </form>
             </div>
+            
+            <div>
+            {/* Alert message (conditionally rendered) */}
+            {showAlertSusses && (
+                <div className="mt-4 alert alert-success">
+                    Producto agregado exitosamente!
+                </div>
+            )}
+        </div >
 
             <div className="fixed top-0 left-0 right-0 z-10 flex items-center justify-center p-4">
                 {showAlertError && (
