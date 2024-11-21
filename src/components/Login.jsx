@@ -21,8 +21,13 @@ const Login = () => {
             console.log('Inicio de sesión exitoso');
             alert('Inicio de sesión exitoso');
             navigate('/'); // Redirige a la página principal
-        } catch (error) {
-            setError(error.message);
+        }  catch (error) {
+            // Manejo del error 
+            if (error.code === 'auth/email-already-in-use') {
+                setError('El correo electrónico o la contraseña son incorrectos.');
+            } else {
+                setError(error.message);
+            }
         }
     };
 
