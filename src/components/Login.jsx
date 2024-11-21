@@ -23,7 +23,7 @@ const Login = () => {
             navigate('/'); // Redirige a la página principal
         }  catch (error) {
             // Manejo del error 
-            if (error.code === 'auth/email-already-in-use') {
+            if (error.code === 'auth/invalid-credential') {
                 setError('El correo electrónico o la contraseña son incorrectos.');
             } else {
                 setError(error.message);
@@ -85,6 +85,8 @@ const Login = () => {
                             </div>
                         </div>
 
+                        {error && <p className="text-red-500 text-sm">{error}</p>}
+
                         <div>
                             <button
                                 type="submit"
@@ -93,6 +95,7 @@ const Login = () => {
                                 Sign in
                             </button>
                         </div>
+
                     </form>
 
                     <p className="mt-10 text-center text-sm text-gray-500">
