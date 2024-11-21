@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from '../firebase/config'; 
+import { auth } from '../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
@@ -14,15 +14,15 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setError(''); 
+        setError('');
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
             console.log('Inicio de sesión exitoso');
-            alert('Inicio de sesión exitoso'); 
+            alert('Inicio de sesión exitoso');
             navigate('/'); // Redirige a la página principal
         } catch (error) {
-            setError(error.message); 
+            setError(error.message);
         }
     };
 
@@ -93,9 +93,9 @@ const Login = () => {
                     <p className="mt-10 text-center text-sm text-gray-500">
                         No tienes cuenta?{' '}
                         <button href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                        <Link to={"/Register"} >
-                                    Registrate ahora
-                                </Link>
+                            <Link to={"/Register"} >
+                                Registrate ahora
+                            </Link>
                         </button>
                     </p>
                 </div>
