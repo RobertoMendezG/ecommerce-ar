@@ -26,6 +26,11 @@ const Card = () => {
             });
     }, [searchTerm]);
 
+
+    const agregarAlCarrito = (producto) => {
+        setCart((prevCart) => [...prevCart, producto]);
+        alert(`${producto.nombre} agregado al carrito`);
+    };
     
     
 
@@ -85,7 +90,12 @@ const Card = () => {
 
                                 {/* Botones de Acción */}
                                 <div className="mt-5 flex flex-col sm:flex-row gap-2">
-                                    <button  className="button-primary w-full sm:w-auto">Agregar al carrito</button>
+                                <button 
+                                        className="button-primary w-full sm:w-auto" 
+                                        onClick={() => agregarAlCarrito(producto)}
+                                    >
+                                        Agregar al carrito
+                                    </button>
                                     <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto flex justify-center items-center">
                                         <FaEye />
                                     </Link>

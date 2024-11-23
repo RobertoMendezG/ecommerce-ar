@@ -70,7 +70,7 @@ const ListProducts = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.id} className="border-v">
+            <tr key={product.id} className="border-b p-4 bg-slate-200 mb-2">
               <td className="px-4 py-3">{product.nombre}</td>
               <td className="px-4 py-3">{product.precio}</td>
               <td className="px-4 py-3">
@@ -106,6 +106,7 @@ const ListProducts = () => {
               </td>
             </tr>
           ))}
+         
         </tbody>
       </table>
       </div>
