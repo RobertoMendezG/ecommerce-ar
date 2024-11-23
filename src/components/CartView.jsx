@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { useCart } from './Cart';
+import { MdDeleteForever } from "react-icons/md";
 
 const CartView = () => {
-    const { cart } = useCart();
+    const { cart, quitarDelCarrito  } = useCart();
 
     return (
         <div>
@@ -13,7 +14,10 @@ const CartView = () => {
             ) : (
                 <ul>
                     {cart.map((producto, index) => (
-                        <li key={index}>{producto.nombre} - ${producto.precio}</li>
+                         <li key={index}>
+                         {producto.nombre} - ${producto.precio}
+                         <button onClick={() => quitarDelCarrito(index)}> <MdDeleteForever className='ml-3 text-xl' /> </button>
+                     </li>
                     ))}
                 </ul>
             )}

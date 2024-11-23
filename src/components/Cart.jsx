@@ -11,8 +11,12 @@ export const CartProvider = ({ children }) => {
         setCart((prevCart) => [...prevCart, producto]);
     };
 
+    const quitarDelCarrito = (index) => {
+        setCart((prevCart) => prevCart.filter((_, i) => i !== index));
+    };
+
     return (
-        <Cart.Provider value={{ cart, agregarAlCarrito }}>
+        <Cart.Provider value={{ cart, agregarAlCarrito, quitarDelCarrito  }}>
             {children}
         </Cart.Provider>
     );
