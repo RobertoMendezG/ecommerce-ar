@@ -4,11 +4,16 @@ import { FaCartPlus } from "react-icons/fa";
 import { doc, getDoc } from "firebase/firestore";
 import db from "../firebase/config";
 import { useParams } from "react-router-dom";
+import { useCart } from './Cart';
 
 const Product = ({ productId }) => {
 
     const [items, setItem] = useState(null);
     const  id = useParams().id;
+    const { agregarAlCarrito }= useCart();
+
+
+
     useEffect(() => {
 
         const docRef = doc(db, "productos",id);
@@ -50,7 +55,12 @@ const Product = ({ productId }) => {
                     <span className="text-xl">0</span>
                     <button className="text-3xl text-violet-600">+</button>
                 </div>
-                <button className="col-span-3 flex rounded-md bg-violet-600 hover:bg-violet-500 py-3 items-center gap-x-3 mt-5 justify-center text-white"> <FaCartPlus /> <span>Agregar a carrito</span></button>
+                <button className="col-span-3 flex rounded-md bg-violet-600 hover:bg-violet-500 py-3 items-center gap-x-3 mt-5 justify-center text-white" onClick={() => {
+                                            agregarAlCarrito(items);
+                                            alert(`${items.nombre} agregado al carrito`);
+                                        }}> 
+                                        <FaCartPlus /> <span>Agregar a carrito</span>
+                                        </button>
             </div>
             </>
             ) : (
