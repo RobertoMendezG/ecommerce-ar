@@ -18,7 +18,8 @@ export const CartProvider = ({ children }) => {
     );
 };
 
-// Hook para usar el contexto
+
+
 export const useCart = () => {
     return useContext(Cart);
 };
