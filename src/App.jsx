@@ -15,6 +15,7 @@ import Admin from "./pages/admin";
 import ProductList from "./pages/ProductList";
 import HomeOffers from "./pages/Offers";
 import Conocenos from "./pages/Conocenos";
+import ViewCart from "./pages/ViewCart";
 import ProductUpdate from "./pages/ProductUpdate";
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/Register" element={<Regist/>} />
           <Route path="/HomeOffers" element={<HomeOffers/>} />
           <Route path="/Conocenos" element={<Conocenos/>} />
+          <Route path="/ViewCart" element={<ViewCart/>} />
           
 
           {"vista de administrador"}

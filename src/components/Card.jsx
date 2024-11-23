@@ -33,7 +33,7 @@ const Card = () => {
         <>
 
             {/* buscador */}
-            <div class="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
+            <div className="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
                 <div className="flex mb-4">
                     <input
                         type="text"
