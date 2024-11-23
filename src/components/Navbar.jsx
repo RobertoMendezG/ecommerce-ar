@@ -6,11 +6,13 @@ import { MdMenu } from "react-icons/md";
 import { ResponsiveMenu } from "../components/ResponsiveMenu";
 import { auth } from '../firebase/config';
 import { signOut } from 'firebase/auth';
+import { useCart } from './Cart';
 
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState(null);
+    const { cart } = useCart(); 
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -75,10 +77,16 @@ const Navbar = () => {
                     {/*iconos*/}
                     <div className="flex items-center gap-4 text-white">
 
-                        {/*carrito*/}
-                        <button className="text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
+                         {/* Carrito */}
+                         <Link to="/Cart" className="relative text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                             <CiShoppingCart className="text-3xl" />
-                        </button>
+                            {/* Muestra el numero de productos en el carrito */}
+                            {cart.length > 0 && (
+                                <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
+                                    {cart.length}
+                                </span>
+                            )}
+                        </Link>
                         {user ? (
                             <div className="flex flex-col items-start">
                                 <button

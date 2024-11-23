@@ -3,11 +3,12 @@ import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase/config";
+import { useCart } from './Cart';
 
 const Card = () => {
     const [productos, setProductos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [cart, setCart] = useState([]); // Estado para el carrito
+    const { agregarAlCarrito }= useCart();
 
     useEffect(() => {
         const productosRef = collection(db, "productos");
@@ -26,15 +27,7 @@ const Card = () => {
             });
     }, [searchTerm]);
 
-
-    const agregarAlCarrito = (producto) => {
-        setCart((prevCart) => [...prevCart, producto]);
-        alert(`${producto.nombre} agregado al carrito`);
-    };
-    
-    
-
-    
+   
 
     return (
         <>
@@ -92,7 +85,10 @@ const Card = () => {
                                 <div className="mt-5 flex flex-col sm:flex-row gap-2">
                                 <button 
                                         className="button-primary w-full sm:w-auto" 
-                                        onClick={() => agregarAlCarrito(producto)}
+                                        onClick={() => {
+                                            agregarAlCarrito(producto);
+                                            alert(`${producto.nombre} agregado al carrito`);
+                                        }}
                                     >
                                         Agregar al carrito
                                     </button>

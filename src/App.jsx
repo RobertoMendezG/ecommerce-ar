@@ -4,6 +4,9 @@ import {
   Routes,
 } from "react-router-dom";
 
+
+import { CartProvider } from './components/Cart';
+
 import HomePage from "./pages/home";
 import DetailProduct from "./pages/DetailProduct";
 import InciarS from "./pages/iniciarS";
@@ -20,6 +23,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <CartProvider>
 
 
         <Routes>
@@ -39,6 +43,7 @@ function App() {
           <Route path="/ProductUpdate/:id" element={<ProductUpdate/>} />
 
         </Routes>
+        </CartProvider>
 
         </BrowserRouter> 
     </div>
