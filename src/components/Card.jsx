@@ -72,7 +72,7 @@ const Card = () => {
 
                                         <div className="flex items-center gap-2 mt-1">
                                             <span className="text-sm line-through opacity-50">
-                                                ${(producto.precio * (1 + producto.descuento / 100)).toFixed(2)}
+                                                ${(producto.precio * (1 - producto.descuento / 100)).toFixed(2)}
                                             </span>
                                             <span className="text-xs sm:text-sm text-red-500">
                                                 Descuento de {producto.descuento}%
