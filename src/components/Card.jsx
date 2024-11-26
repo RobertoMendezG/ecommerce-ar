@@ -8,7 +8,7 @@ import { useCart } from './Cart';
 const Card = () => {
     const [productos, setProductos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const { agregarAlCarrito }= useCart();
+    const { agregarAlCarrito } = useCart();
 
     useEffect(() => {
         const productosRef = collection(db, "productos");
@@ -27,11 +27,8 @@ const Card = () => {
             });
     }, [searchTerm]);
 
-   
-
     return (
         <>
-
             {/* buscador */}
             <div className="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
                 <div className="flex mb-4">
@@ -47,7 +44,6 @@ const Card = () => {
             {/* buscador */}
 
             <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
                     {productos.map((producto) => (
                         <div key={producto.id} className="bg-white text-gray-700 shadow-lg rounded-3xl overflow-hidden flex flex-col">
@@ -67,9 +63,8 @@ const Card = () => {
                                 <span className="text-xl font-bold">
                                     ${producto.precio}
                                 </span>
-                                {producto.descuento > 0 && ( // se revisa si el descuento es 0
+                                {producto.descuento > 0 && (
                                     <div>
-
                                         <div className="flex items-center gap-2 mt-1">
                                             <span className="text-sm line-through opacity-50">
                                                 ${(producto.precio * (1 - producto.descuento / 100)).toFixed(2)}
@@ -82,8 +77,8 @@ const Card = () => {
                                 )}
 
                                 {/* Botones de Acción */}
-                                <div className="mt-5 flex flex-col sm:flex-row gap-2">
-                                <button 
+                                <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento > 0 ? 'mb-0' : 'mb-4'}`}>
+                                    <button 
                                         className="button-primary w-full sm:w-auto" 
                                         onClick={() => {
                                             agregarAlCarrito(producto);
