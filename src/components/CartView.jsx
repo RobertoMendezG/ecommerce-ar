@@ -11,8 +11,8 @@ const CartView = () => {
     };
 
     return (
-        <div>
-            <h1>Carrito de Compras</h1>
+        <div className='ml-10'>
+            <h1 className='mt-10'>Carrito de Compras</h1>
             {cart.length === 0 ? (
                 <p>No hay productos en el carrito.</p>
             ) : (
@@ -27,7 +27,11 @@ const CartView = () => {
                             </li>
                         ))}
                     </ul>
-                    <h2>Total: ${calcularTotal()}</h2>
+                    <h2 className='mt-2'>Total: ${calcularTotal()}</h2>
+
+                    <button className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-1 px-2 rounded-full sm:px-3 sm:py-3 md:px-4 md:py-2 mb-10 mt-2'>
+                        Pagar ahora
+                    </button>
                 </>
             )}
         </div>
