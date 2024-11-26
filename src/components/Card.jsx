@@ -62,30 +62,10 @@ const Card = () => {
                                 </h2>
 
                                 {/* Precio del Producto */}
-                                 { /*    
+                                 <div className="min-h-[60px] flex flex-col justify-center">
                                 <span className="text-xl font-bold">
                                     ${producto.precio}
-                                </span> */}
-<div>
-    <span className="text-xl font-bold">
-        ${producto.precio}
-    </span>
-    {producto.descuento > 0 ? (
-        <div>
-            <div className="flex items-center gap-2 mt-1">
-                <span className="text-sm line-through opacity-50">
-                    ${(producto.precio * (1 - producto.descuento / 100)).toFixed(2)}
-                </span>
-                <span className="text-xs sm:text-sm text-red-500">
-                    Descuento de {producto.descuento}%
-                </span>
-            </div>
-        </div>
-    ) : (
-        <div className="h-6"></div> {/* Espacio reservado si no hay descuento */}
-    )}
-</div>
-                                 { /*           
+                                </span>                                     
                                 {producto.descuento > 0 && (
                                     <div>
                                         <div className="flex items-center gap-2 mt-1">
@@ -98,7 +78,7 @@ const Card = () => {
                                         </div>
                                     </div>
                                 )}
-                              */ }
+                            </div>
                                 {/* Botones de Acción */}
                                 <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento > 0 ? 'mb-0' : 'mb-4'}`}>
                                     <button 
