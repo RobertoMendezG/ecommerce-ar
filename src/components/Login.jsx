@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../firebase/config';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
 
@@ -118,17 +119,16 @@ const Login = () => {
                         </button>
                     </p>
 
+                    <button
+                            onClick={handleGoogleSignIn}
+                            className="flex w-full mt-3 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                        >
+                            Iniciar sesión con Google  <FcGoogle  className="ml-2 mt-0  w-6 h-6"/>
+                        </button>
                     
                 </div>
 
-                <div className="mt-6">
-                        <button
-                            onClick={handleGoogleSignIn}
-                            className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-                        >
-                            Iniciar sesión con Google
-                        </button>
-                    </div>
+               
             </div>
         </>
     )
