@@ -33,6 +33,8 @@ const Login = () => {
         }
     };
 
+    // inicio de sesion con google
+
     const handleGoogleSignIn = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
