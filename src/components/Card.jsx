@@ -62,10 +62,10 @@ const Card = () => {
                                 </h2>
 
                                 {/* Precio del Producto */}
-                                  
+                                 { /*    
                                 <span className="text-xl font-bold">
                                     ${producto.precio}
-                                </span>
+                                </span> */}
 <div>
     <span className="text-xl font-bold">
         ${producto.precio}
