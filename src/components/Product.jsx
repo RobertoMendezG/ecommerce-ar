@@ -7,13 +7,11 @@ import { useParams } from "react-router-dom";
 import { useCart } from './Cart';
 
 const Product = ({ productId }) => {
-
     const [items, setItem] = useState(null);
-    const  id = useParams().id;
-    const { agregarAlCarrito }= useCart();
-
-
-
+    const [cantidad, setCantidad] = useState(0); // Estado para manejar la cantidad
+    const id = useParams().id;
+    const { agregarAlCarrito } = useCart();
+    // Cargar los datos del producto desde Firebase
     useEffect(() => {
 
         const docRef = doc(db, "productos",id);
@@ -30,51 +28,74 @@ const Product = ({ productId }) => {
                 );
             })
     }, [productId]);
-
+    
+// Funciones para manejar la cantidad
+    const incrementarCantidad = () => setCantidad(cantidad + 1);
+    const decrementarCantidad = () => {
+        if (cantidad > 0) setCantidad(cantidad - 1);
+    };
 
     return (
-
-        <section className="container mx-auto px-4 ">
+        <section className="container mx-auto px-4">
             {items ? (
                 <>
+                    {/* Información del Producto */}
+                    <h2 className="mb-4 text-3xl font-bold">{items.nombre}</h2>
+                    <p className="mb-5 text-gray-400">{items.descripcion}</p>
+                    <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
+                        <span className="text-3xl">${items.precio}</span>
+                        <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
+                        <span className="text-right text-lg text-gray-300 line-through">
+                            ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
+                        </span>
+                    </div>
 
-            <h2 className="mb-4 text-3xl font-bold">{items.nombre}</h2>
-            <p className="mb-5 text-gray-400">
-            {items.descripcion}
-            </p>
-            <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
+                    {/* Controles de cantidad y botón agregar */}
+                    <div className="grid grid-cols-3 font-bold">
+                        {/* Ajuste de Cantidad */}
+                        <div className="col-span-3 flex items-baseline justify-between rounded-md bg-gray-200 pb-3 py-2 px-5">
+                            <button
+                                className="text-3xl text-violet-600"
+                                onClick={decrementarCantidad}
+                            >
+                                -
+                            </button>
+                            <span className="text-xl">{cantidad}</span>
+                            <button
+                                className="text-3xl text-violet-600"
+                                onClick={incrementarCantidad}
+                            >
+                                +
+                            </button>
+                        </div>
 
-                <span className="text-3xl">${items.precio}</span>
-                <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
-
-                <span className="text-right text-lg text-gray-300 line-through">${(items.precio * (1 + items.descuento / 100)).toFixed(2)}</span>
-            </div>
-            <div className="grid grid-cols-3 font-bold">
-                <div className="col-span-3 flex items-baseline justify-between rounded-md bg-gray-200 pb-3 py-2 px-5">
-                    <button className="text-3xl text-violet-600 ">-</button>
-                    <span className="text-xl">0</span>
-                    <button className="text-3xl text-violet-600">+</button>
-                </div>
-                <button className="col-span-3 flex rounded-md bg-violet-600 hover:bg-violet-500 py-3 items-center gap-x-3 mt-5 justify-center text-white" onClick={() => {
-                                            agregarAlCarrito(items);
-                                            alert(`${items.nombre} agregado al carrito`);
-                                        }}> 
-                                        <FaCartPlus /> <span>Agregar a carrito</span>
-                                        </button>
-            </div>
-            </>
+                        {/* Botón Agregar al Carrito */}
+                        <button
+                            className="col-span-3 flex rounded-md bg-violet-600 hover:bg-violet-500 py-3 items-center gap-x-3 mt-5 justify-center text-white"
+                            onClick={() => {
+                                if (cantidad > 0) {
+                                    agregarAlCarrito({ ...items, cantidad });
+                                    alert(`${cantidad} x ${items.nombre} agregado(s) al carrito`);
+                                } else {
+                                    alert("Debes agregar al menos 1 producto.");
+                                }
+                            }}
+                        >
+                            <FaCartPlus /> <span>Agregar a carrito</span>
+                        </button>
+                    </div>
+                </>
             ) : (
                 <p>Product not found.</p>
-              )}
+            )}
 
 
-              {/* Integración del modelo 3D */}
-              
+            {/* Integración del modelo 3D */}
+
+
             
-        
-        
         </section>
     );
-}
+};
 
 export default Product;
