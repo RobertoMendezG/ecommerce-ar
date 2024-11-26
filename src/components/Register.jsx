@@ -18,7 +18,7 @@ const Register = () => {
             await createUserWithEmailAndPassword(auth, email, password);
             console.log('Usuario registrado con éxito');
             alert('Usuario registrado con éxito');
-            navigate('/Login');
+            navigate('/');
         } catch (error) {
             // Manejo del error 
             if (error.code === 'auth/email-already-in-use') {

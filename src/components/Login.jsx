@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../firebase/config';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
@@ -11,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -28,6 +29,19 @@ const Login = () => {
             } else {
                 setError(error.message);
             }
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            console.log('Usuario registrado con Google:', user);
+            alert('Usuario registrado con Google con éxito');
+            navigate('/');
+        } catch (error) {
+            console.error('Error al iniciar sesión con Google:', error);
+            setError(error.message);
         }
     };
 
@@ -103,7 +117,18 @@ const Login = () => {
                             </Link>
                         </button>
                     </p>
+
+                    
                 </div>
+
+                <div className="mt-6">
+                        <button
+                            onClick={handleGoogleSignIn}
+                            className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                        >
+                            Iniciar sesión con Google
+                        </button>
+                    </div>
             </div>
         </>
     )
