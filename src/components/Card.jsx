@@ -53,7 +53,7 @@ const Card = () => {
                             </div>
 
                             {/* Contenedor de la Información */}
-                            <div className="min-height: 50px;
+                           
                              <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-3">
                                  {/*   <div className="mt-5 flex flex-col sm:flex-row gap-2 mb-4"> */}
                                 {/* Nombre del Producto */}
@@ -62,6 +62,7 @@ const Card = () => {
                                 </h2>
 
                                 {/* Precio del Producto */}
+                                  <div className="min-height: 50px;
                                 <span className="text-xl font-bold">
                                     ${producto.precio}
                                 </span>
