@@ -62,7 +62,7 @@ const Card = () => {
                                 </h2>
 
                                 {/* Precio del Producto */}
-                                 <div className="min-h-[60px] flex flex-col justify-center">
+                                 <div className="min-h-[90px] flex flex-col justify-center">
                                 <span className="text-xl font-bold">
                                     ${producto.precio}
                                 </span>                                     
