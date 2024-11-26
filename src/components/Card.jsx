@@ -53,6 +53,7 @@ const Card = () => {
                             </div>
 
                             {/* Contenedor de la Información */}
+                            <div className="min-height: 50px;
                              <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-3">
                                  {/*   <div className="mt-5 flex flex-col sm:flex-row gap-2 mb-4"> */}
                                 {/* Nombre del Producto */}
@@ -76,7 +77,7 @@ const Card = () => {
                                         </div>
                                     </div>
                                 )}
-
+                                </div>
                                 {/* Botones de Acción */}
                                 <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento > 0 ? 'mb-0' : 'mb-4'}`}>
                                     <button 
