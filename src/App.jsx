@@ -17,6 +17,8 @@ import HomeOffers from "./pages/Offers";
 import Conocenos from "./pages/Conocenos";
 import ViewCart from "./pages/ViewCart";
 import ProductUpdate from "./pages/ProductUpdate";
+import FormPag from './FormPag';
+
 
 
 
@@ -36,7 +38,7 @@ function App() {
           <Route path="/HomeOffers" element={<HomeOffers/>} />
           <Route path="/Conocenos" element={<Conocenos/>} />
           <Route path="/ViewCart" element={<ViewCart/>} />
-          
+          <Route path="/formpag" element={<FormPag />} />
 
           {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
