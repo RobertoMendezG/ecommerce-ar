@@ -33,7 +33,7 @@ const ImgDetail = ({ productId }) => {
         {items ? (
             <>
             <div className="col-span-4">
-            <img src={items.imagen} alt="" className="ml-20" width={"300px"} height={"100px"} />
+            <img src={items.imagen} alt="" className="ml-18" width={"300px"} height={"100px"} />
             
         </div>
         </>
