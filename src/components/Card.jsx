@@ -41,7 +41,7 @@ const Card = () => {
                     />
                 </div>
             </div>
-            {/* buscador */}
+            {/* termina buscador */}
 
             <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
