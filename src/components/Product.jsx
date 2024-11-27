@@ -14,7 +14,7 @@ const Product = ({ productId }) => {
     // Cargar los datos del producto desde Firebase
     useEffect(() => {
 
-        const docRef = doc(db, "productos",id);
+        const docRef = doc(db, "productos", id);
 
         getDoc(docRef)
             .then((resp) => {
@@ -22,14 +22,14 @@ const Product = ({ productId }) => {
                     {
                         ...resp.data(),
                         id: resp.id,
-                        
+
                     }
-                    
+
                 );
             })
     }, [productId]);
-    
-// Funciones para manejar la cantidad
+
+    // Funciones para manejar la cantidad
     const incrementarCantidad = () => setCantidad(cantidad + 1);
     const decrementarCantidad = () => {
         if (cantidad > 0) setCantidad(cantidad - 1);
@@ -45,9 +45,11 @@ const Product = ({ productId }) => {
                     <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
                         <span className="text-3xl">${items.precio}</span>
                         <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
-                        <span className="text-left text-lg text-gray-300 line-through">
-                            ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
-                        </span>
+                        <div class="flex justify-start">
+                            <span class="text-left text-lg text-gray-300 line-through">
+                                ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
+                            </span>
+                        </div>
                     </div>
 
                     {/* Controles de cantidad y botón agregar */}
@@ -93,7 +95,7 @@ const Product = ({ productId }) => {
             {/* Integración del modelo 3D */}
 
 
-            
+
         </section>
     );
 };
