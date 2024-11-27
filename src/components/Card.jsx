@@ -1,71 +1,107 @@
-import React from 'react';
-import { CartProvider, useCart } from './CartContext';
+import React, { useEffect, useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../firebase/config";
+import { useCart } from './Cart';
 
-const Producto = ({ producto }) => {
+const Card = () => {
+    const [productos, setProductos] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
     const { agregarAlCarrito } = useCart();
-    return (
-        <div className="p-4 border rounded-lg shadow-sm bg-white hover:shadow-md transition">
-            <h3 className="text-lg font-bold text-black mb-2">{producto.nombre}</h3>
-            <button
-                className="bg-violet-500 text-white py-2 px-4 rounded-full hover:bg-violet-600 transition"
-                onClick={() => agregarAlCarrito(producto)}
-            >
-                Agregar al carrito
-            </button>
-        </div>
-    );
-};
 
-const Carrito = () => {
-    const { cart, quitarDelCarrito } = useCart();
-    return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-black mb-4">Carrito</h2>
-            {cart.length === 0 ? (
-                <p className="text-gray-500">Tu carrito está vacío.</p>
-            ) : (
-                cart.map((item, index) => (
-                    <div
-                        key={index}
-                        className="flex justify-between items-center p-4 border-b last:border-none"
-                    >
-                        <p className="text-black">{item.nombre}</p>
-                        <button
-                            className="bg-violet-500 text-white py-1 px-3 rounded-full hover:bg-violet-600 transition"
-                            onClick={() => quitarDelCarrito(index)}
-                        >
-                            Eliminar
-                        </button>
-                    </div>
-                ))
-            )}
-        </div>
-    );
-};
+    useEffect(() => {
+        const productosRef = collection(db, "productos");
 
-function App() {
-    const productos = [
-        { id: 1, nombre: 'Producto 1' },
-        { id: 2, nombre: 'Producto 2' },
-    ];
+        getDocs(productosRef)
+            .then((resp) => {
+                const filteredProducts = resp.docs
+                    .map((doc) => ({ ...doc.data(), id: doc.id }))
+                    .filter((producto) =>
+                        producto.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+                    );
+                setProductos(filteredProducts);
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error);
+            });
+    }, [searchTerm]);
 
     return (
-        <CartProvider>
-            <div className="min-h-screen bg-gray-100 p-6">
-                <h1 className="text-3xl font-bold text-black mb-6 text-center">
-                    Tienda
-                </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {productos.map((producto) => (
-                        <Producto key={producto.id} producto={producto} />
-                    ))}
-                </div>
-                <div className="mt-10 max-w-md mx-auto">
-                    <Carrito />
+        <>
+            {/* buscador */}
+            <div className="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
+                <div className="flex mb-4">
+                    <input
+                        type="text"
+                        placeholder="Buscar Productos"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                    />
                 </div>
             </div>
-        </CartProvider>
-    );
-}
+            {/* termina buscador */}
 
-export default App;
+            <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
+                    {productos.map((producto) => (
+                        <div key={producto.id} className="bg-white text-gray-700 shadow-lg rounded-3xl overflow-hidden flex flex-col">
+                            {/* Contenedor de la Imagen */}
+                            <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 2xl:h-96 p-4 flex justify-center items-center">
+                                <img className="object-contain w-full h-full max-w-full max-h-full rounded-t-3xl" src={producto.imagen} alt={producto.nombre} />
+                            </div>
+
+                            {/* Contenedor de la Información */}
+                           
+                             <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-3">
+                                 {/*   <div className="mt-5 flex flex-col sm:flex-row gap-2 mb-4"> */}
+                                {/* Nombre del Producto */}
+                                <h2 className="text-base md:text-lg lg:text-xl font-semibold">
+                                    {producto.nombre}
+                                </h2>
+
+                                {/* Precio del Producto */}
+                                 <div className="min-h-[90px] flex flex-col justify-center">
+                                <span className="text-xl font-bold">
+                                    ${producto.precio}
+                                </span>                                     
+                                {producto.descuento > 0 && (
+                                    <div>
+                                        <div className="flex items-center gap-2 mt-1">
+                                            <span className="text-sm line-through opacity-50">
+                                                ${(producto.precio * (1 - producto.descuento / 100)).toFixed(2)}
+                                            </span>
+                                            <span className="text-xs sm:text-sm text-red-500">
+                                                Descuento de {producto.descuento}%
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                                {/* Botones de Acción */}
+                                <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento > 0 ? 'mb-0' : 'mb-4'}`}>
+                                    <button 
+                                        className="button-primary w-full sm:w-auto" 
+                                        onClick={() => {
+                                            agregarAlCarrito(producto);
+                                            alert(`${producto.nombre} agregado al carrito`);
+                                        }}
+                                    >
+                                        Agregar al carrito
+                                    </button>
+                                    <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto flex justify-center items-center">
+                                        <FaEye />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Card;
+
