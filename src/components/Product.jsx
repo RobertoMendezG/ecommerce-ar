@@ -45,7 +45,7 @@ const Product = ({ productId }) => {
                     <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
                         <span className="text-3xl">${items.precio}</span>
                         <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
-                        <span className="text-right text-lg text-gray-300 mr-10 line-through">
+                        <span className="text-left text-lg text-gray-300 line-through">
                             ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
                         </span>
                     </div>
