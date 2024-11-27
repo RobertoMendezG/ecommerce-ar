@@ -42,14 +42,12 @@ const Product = ({ productId }) => {
                     {/* Información del Producto */}
                     <h2 className="mb-4 text-3xl font-bold">{items.nombre}</h2>
                     <p className="mb-5 text-gray-400">{items.descripcion}</p>
-                    <div className="grid grid-cols-4 items-center gap-40 font-bold mb-5">
-                        <span className="text-3xl">${items.precio}</span>
-                        <span className="mr-auto rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
-                        <div class="flex justify-start">
-                            <span class="text-left text-lg text-gray-300 line-through">
-                                ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
-                            </span>
-                        </div>
+                    <div class="grid grid-cols-3 items-center gap-4 font-bold mb-5">
+                        <span class="text-3xl">${items.precio}</span>
+                        <span class="mr-auto ml-6 rounded-md bg-purple-200 py-1 px-2 text-purple-700">{items.descuento}%</span>
+                        <span class="text-right text-lg text-gray-300 line-through">
+                            ${(items.precio * (1 + items.descuento / 100)).toFixed(2)}
+                        </span>
                     </div>
 
                     {/* Controles de cantidad y botón agregar */}
