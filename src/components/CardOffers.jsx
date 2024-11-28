@@ -3,10 +3,12 @@ import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase/config";
+import { useCart } from './Cart';
 
 const CardOffers = () => {
     const [productos, setProductos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const { agregarAlCarrito } = useCart();
 
     useEffect(() => {
         const productosRef = collection(db, "productos");
@@ -81,7 +83,15 @@ const CardOffers = () => {
 
                                 {/* Botones de Acción */}
                                 <div className="mt-5 flex flex-col sm:flex-row gap-2">
-                                    <button onClick={() => addToCart(producto)} className="button-primary w-full sm:w-auto">Agregar al carrito</button>
+                                <button 
+                                        className="button-primary w-full sm:w-auto" 
+                                        onClick={() => {
+                                            agregarAlCarrito(producto);
+                                            alert(`${producto.nombre} agregado al carrito`);
+                                        }}
+                                    >
+                                        Agregar al carrito
+                                    </button>
                                     <Link to={`/DetailProduct/${producto.id}`} className="button-icon w-full sm:w-auto flex justify-center items-center">
                                         <FaEye />
                                     </Link>
