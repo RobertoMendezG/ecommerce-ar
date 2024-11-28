@@ -16,7 +16,6 @@ function ViewCart() {
           <Navbar />
         </div>
         
-        <Banner />
         <div className="card">
           <CartView />
         </div>
