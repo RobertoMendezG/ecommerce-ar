@@ -3,7 +3,6 @@
 import Navbar from "../components/Navbar";
 import CardOffers from "../components/CardOffers";
 import Footer from "../components/Footer";
-import Banner from "../components/Banner";
 
 function HomeOffers() {
 
@@ -20,7 +19,7 @@ function HomeOffers() {
           <CardOffers />
         </div>
 
-        
+
         <div className="overflow-x-hidden bg-violet-500 text-white">
           <div className="top-3">
             <Footer />
