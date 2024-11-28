@@ -11,7 +11,7 @@ const CartView = () => {
     };
 // Manejar el clic del botón "Pagar ahora"
     const handlePagarAhora = () => {
-        navigate('/formPag'); // Redirige la página
+        navigate('/formpag'); // Redirige la página
     };
     
     return (
