@@ -30,7 +30,7 @@ const Card = () => {
     return (
         <>
             {/* buscador */}
-            <div className="relative bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
+            <div className="relative mt-5 bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
                 <div className="flex mb-4">
                     <input
                         type="text"

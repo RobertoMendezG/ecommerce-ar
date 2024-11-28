@@ -16,8 +16,7 @@ function HomeOffers() {
           <Navbar />
         </div>
         
-        <Banner />
-        <div className="card">
+        <div className="card mt-2">
           <CardOffers />
         </div>
         <div className="overflow-x-hidden bg-violet-500 text-white">
