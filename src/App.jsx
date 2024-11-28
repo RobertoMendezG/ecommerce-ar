@@ -22,6 +22,8 @@ import FormPag from './FormPag';
 
 
 
+
+
 function App() {
   return (
     <div>
@@ -30,7 +32,9 @@ function App() {
 
 
         <Routes>
-      
+
+          <Route path="/formpag" element={<FormPag />} />
+          
           <Route path="/" element={<HomePage/>} />
           <Route path="/DetailProduct/:id" element={<DetailProduct/>} />
           <Route path="/Login" element={<InciarS/>} />
@@ -38,8 +42,7 @@ function App() {
           <Route path="/HomeOffers" element={<HomeOffers/>} />
           <Route path="/Conocenos" element={<Conocenos/>} />
           <Route path="/ViewCart" element={<ViewCart/>} />
-           {/* Este es un comentario de una línea */}
-          <Route path="/formpag" element={<FormPag />} />
+         
 
           {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
