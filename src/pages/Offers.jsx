@@ -15,6 +15,7 @@ function HomeOffers() {
           <Navbar />
         </div>
       
+      
         <div className="card mt-2">
           <CardOffers />
         </div>
