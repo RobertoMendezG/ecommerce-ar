@@ -1,8 +1,8 @@
- import React from 'react';
+import React from 'react';
 import { useCart } from './Cart';
 import { MdDeleteForever } from "react-icons/md";
 
-const CartView = () => {
+    const CartView = () => {
     const { cart, quitarDelCarrito } = useCart();
 
     // Calcular el total de los productos con convercion a numero
