@@ -16,7 +16,7 @@ const CartView = () => {
     
     return (
         <div className='ml-10'>
-            <h1 className='mt-10'>Carrito de Compras</h1>
+            <h1 className='mt-12'>Carrito de Compras</h1>
             {cart.length === 0 ? (
                 <p>No hay productos en el carrito.</p>
             ) : (
