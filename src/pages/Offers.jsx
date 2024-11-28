@@ -15,10 +15,12 @@ function HomeOffers() {
         <div className="overflow-x-hidden bg-violet-500">
           <Navbar />
         </div>
-        
+      
         <div className="card mt-2">
           <CardOffers />
         </div>
+
+        
         <div className="overflow-x-hidden bg-violet-500 text-white">
           <div className="top-3">
             <Footer />
