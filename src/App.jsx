@@ -17,7 +17,7 @@ import HomeOffers from "./pages/Offers";
 import Conocenos from "./pages/Conocenos";
 import ViewCart from "./pages/ViewCart";
 import ProductUpdate from "./pages/ProductUpdate";
-//import FormPag from './FormPag';
+
 
 
 
@@ -33,7 +33,6 @@ function App() {
 
         <Routes>
 
-         // <Route path="/formpag" element={<FormPag />} />
           
           <Route path="/" element={<HomePage/>} />
           <Route path="/DetailProduct/:id" element={<DetailProduct/>} />
