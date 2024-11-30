@@ -9,10 +9,7 @@ import { MdDeleteForever } from "react-icons/md";
     const calcularTotal = () => {
         return cart.reduce((total, producto) => total + Number(producto.precio), 0);
     };
-// Manejar el clic del botón "Pagar ahora"
-  //  const handlePagarAhora = () => {
-   //     navigate('/formpag'); // Redirige la página
-//    };
+
     
     return (
         <div className='ml-10'>
