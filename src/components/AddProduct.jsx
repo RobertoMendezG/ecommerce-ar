@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import db from "../firebase/config"; // Asegúrate de importar tu configuración de Firebase
+import { useNavigate } from "react-router-dom";
+import db from "../firebase/config";
 import { collection, addDoc, where, getDocs, query } from "firebase/firestore";
 
 const Add = () => {
@@ -10,6 +11,7 @@ const Add = () => {
     const [productDescu, setProductDescu] = useState("");
     const [showAlertSusses, setShowAlertSusses] = useState(false);
     const [showAlertError, setShowAlertError] = useState(false);
+    const navigate = useNavigate();
 
 
     const handleAddProduct = async () => {
@@ -40,6 +42,10 @@ const Add = () => {
         } catch (e) {
             console.error("Error al agregar producto: ", e);
         }
+    };
+
+    const handleBackToDashboard = () => {
+        navigate('/viewDashboard');
     };
 
     return (
@@ -110,16 +116,25 @@ const Add = () => {
                         Agregar Producto
                     </button>
                 </form>
-            </div>
-            
-            <div>
-            {/* Alert message (conditionally rendered) */}
-            {showAlertSusses && (
-                <div className="mt-4 alert alert-success">
-                    Producto agregado exitosamente!
+                {/* Botón para regresar al dashboard */}
+                <div className="mt-4">
+                    <button
+                        onClick={handleBackToDashboard}
+                        className="w-full bg-gray-600 text-white font-semibold py-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300"
+                    >
+                        Regresar al Dashboard
+                    </button>
                 </div>
-            )}
-        </div >
+            </div>
+
+            <div>
+                {/* Alert mensaje*/}
+                {showAlertSusses && (
+                    <div className="mt-4 alert alert-success">
+                        Producto agregado exitosamente!
+                    </div>
+                )}
+            </div >
 
             <div className="fixed top-0 left-0 right-0 z-10 flex items-center justify-center p-4">
                 {showAlertError && (
@@ -128,6 +143,8 @@ const Add = () => {
                     </div>
                 )}
             </div>
+
+
 
         </>
     );

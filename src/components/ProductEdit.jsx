@@ -30,6 +30,10 @@ const ProductEdit = () => {
 
     if (loading) return <div className="text-center">Cargando...</div>;
 
+    const handleBackToDashboard = () => {
+        navigate('/viewDashboard');
+    };
+
     return (
         <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md mt-10">
             <h2 className="text-2xl font-semibold text-center mb-4">Actualizar Producto</h2>
@@ -92,6 +96,15 @@ const ProductEdit = () => {
                     Actualizar
                 </button>
             </form>
+            {/* Botón para regresar al dashboard */}
+            <div className="mt-4">
+                    <button
+                        onClick={handleBackToDashboard}
+                        className="w-full bg-gray-600 text-white font-semibold py-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300"
+                    >
+                        Regresar al Dashboard
+                    </button>
+                </div>
         </div>
     );
 };
