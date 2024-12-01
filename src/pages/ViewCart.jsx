@@ -15,7 +15,7 @@ function ViewCart() {
           <Navbar />
         </div>
         
-        <div className="card mb-12">
+        <div className="card flex-grow">
           <CartView />
         </div>
 
