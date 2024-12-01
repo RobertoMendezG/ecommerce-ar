@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar";
 import CartView from "../components/CartView";
 import Banner from "../components/Banner";
-import Footer from "../components/Footer";
+
 
 function ViewCart() {
 
@@ -19,11 +19,7 @@ function ViewCart() {
           <CartView />
         </div>
 
-        <div className="overflow-x-hidden bg-violet-500 text-white">
-          <div className="top-3">
-            <Footer />
-          </div>
-        </div>
+       
       </div>
     </>
   )
