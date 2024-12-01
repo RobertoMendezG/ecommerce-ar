@@ -2,7 +2,6 @@
 
 import Navbar from "../components/Navbar";
 import CartView from "../components/CartView";
-import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 
 function ViewCart() {
