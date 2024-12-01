@@ -50,16 +50,11 @@ const ListProducts = () => {
 
   return (
     <>
-      <h2 className="mr-2">Productos</h2>
-
-
-      <Link to={"/admin"} >
-        <button><IoIosAddCircle /></button>
-      </Link>
+            
       <div className="overflow-x-auto">
       <table className="table-auto w-full bg-slate-300">
         <thead>
-          <tr className="bg-violet-600 text-white text-left font-medium">
+          <tr className="bg-gray-800 text-white text-left font-medium">
             <th className="px-4 py-3 text-center">Nombre</th>
             <th className="px-4 py-3 text-center">Precio</th>
             <th className="px-4 py-3 text-center">Imagen</th>

@@ -13,6 +13,7 @@ import InciarS from "./pages/iniciarS";
 import Regist from "./pages/Regist";
 import Admin from "./pages/admin";
 import ProductList from "./pages/ProductList";
+import ViewDashboard from "./pages/ViewDashboard";
 import HomeOffers from "./pages/Offers";
 import Conocenos from "./pages/Conocenos";
 import ViewCart from "./pages/ViewCart";
@@ -46,6 +47,7 @@ function App() {
           {"vista de administrador"}
           <Route path="/admin" element={<Admin/>} />
           <Route path="/ProductList" element={<ProductList/>} />
+          <Route path="/ViewDashboard" element={<ViewDashboard/>} />
           
           <Route path="/ProductUpdate/:id" element={<ProductUpdate/>} />
 

@@ -1,4 +1,5 @@
 import ListProduct from "../components/ListProduct";
+import AdminDashboard from '../components/AdminDashboard';
 
 function ProductList() {
 
@@ -7,7 +8,8 @@ function ProductList() {
   return (
     <>
 
-      <ListProduct />
+<AdminDashboard />
+
 
     </>
   )
