@@ -22,7 +22,14 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, email, password);
             console.log('Inicio de sesión exitoso');
             alert('Inicio de sesión exitoso');
-            navigate('/'); // Redirige a la página principal
+           // Verifica si el email es denedig@gmail.com
+           
+        if (email === 'denedig@gmail.com') {
+            navigate('/ProductList'); // Redirige a la pagina de admin
+
+        } else {
+            navigate('/'); // Redirige a la pagina principal
+        }
         }  catch (error) {
             // Manejo del error 
             if (error.code === 'auth/invalid-credential') {
