@@ -31,7 +31,7 @@ import { MdDeleteForever } from "react-icons/md";
                     <h2 className='mt-2'>Total: ${calcularTotal()}</h2>
 
                   <button
-                        className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-1 px-2 rounded-full sm:px-3 sm:py-3 md:px-4 md:py-2 mb-10 mt-2'
+                        className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-3 px-2 rounded-full sm:px-3 sm:py-3 md:px-4 md:py-2 mb-10 mt-2'
                     >
                         Pagar ahora
                     </button>
