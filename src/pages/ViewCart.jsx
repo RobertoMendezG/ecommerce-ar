@@ -1,7 +1,6 @@
 
 import Navbar from "../components/Navbar";
 import CartView from "../components/CartView";
-import Banner from "../components/Banner";
 
 
 function ViewCart() {

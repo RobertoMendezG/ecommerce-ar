@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState(null);
-    const { cart } = useCart(); 
+    const { cart } = useCart();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -40,7 +40,6 @@ const Navbar = () => {
         <>
             <nav >
                 <div className="container flex justify-between items-center py-0">
-                    {/*  <div className="container flex flex-col sm:flex-row justify-between items-center py-4 sm:py-0">*/}
 
                     {/*logo*/}
                     <div className="text-2xl sm:text-xl md:text-2xl lg:text-3xl flex text-white items-center gap-2 font-bold py-8 uppercase">
@@ -50,7 +49,6 @@ const Navbar = () => {
 
                     {/*menu*/}
                     <div className="hidden md:block">
-
 
                         <ul className="flex items-center gap-6 text-white">
                             <li><button className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
@@ -71,14 +69,13 @@ const Navbar = () => {
                                 </Link>
                             </button>
                             </li>
-
                         </ul>
                     </div>
                     {/*iconos*/}
                     <div className="flex items-center gap-4 text-white">
 
-                         {/* Carrito */}
-                         <Link to="/ViewCart" className="relative text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
+                        {/* Carrito */}
+                        <Link to="/ViewCart" className="relative text-2xl hover:bg-blue-800 hover:text-white rounded-full p-2 duration-200">
                             <CiShoppingCart className="text-3xl" />
                             {/* Muestra el numero de productos en el carrito */}
                             {cart.length > 0 && (
@@ -112,11 +109,6 @@ const Navbar = () => {
                         <MdMenu className="text-4xl text-white" />
                     </div>
                 </div>
-
-
-
-
-
 
                 {/*movil seccion hamburger*/}
                 <ResponsiveMenu open={open} />
