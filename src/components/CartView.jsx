@@ -23,12 +23,12 @@ import { useState } from 'react';
             // Construir los datos con los productos del carrito
             const products = cart.map((producto) => ({
                 title: producto.nombre,
-              unit_price: parseFloat(producto.precio), // Convertir precio a número
-              quantity: 1, // Asumiendo que cada producto tiene cantidad 1
+              unit_price: parseFloat(producto.precio), 
+              quantity: 1, 
             }));
         
             // Enviar los datos al backend
-            const response = await axios.post("http: //localhost:3000/create_preference", {
+            const response = await axios.post("https://ecommerce-ar-alpha.vercel.app/", {
                 items: products,
             });
         
