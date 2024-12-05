@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@google/model-viewer": "^3.5.0",
+    "@mercadopago/sdk-react": "^0.0.19",
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
     "@react-three/gltfjsx": "^4.3.4",
