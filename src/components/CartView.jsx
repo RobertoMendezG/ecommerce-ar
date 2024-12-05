@@ -4,10 +4,10 @@ import { useCart } from './Cart';
 import { MdDeleteForever } from "react-icons/md";
 
 const CartView = () => {
-    const { cart, quitarDelCarrito, vaciarCarrito  } = useCart();
+    const { cart, quitarDelCarrito, vaciarCarrito } = useCart();
     const navigate = useNavigate();
     const [paypalReady, setPaypalReady] = useState(false);
-    
+
 
     const calcularTotal = () => {
         return cart.reduce((total, producto) => total + Number(producto.precio), 0);
@@ -39,7 +39,7 @@ const CartView = () => {
                     alert('Ocurrió un error durante el proceso de pago.');
                 }
             }
-        }).render('#paypal-button-container'); 
+        }).render('#paypal-button-container');
     };
 
     useEffect(() => {
@@ -47,11 +47,11 @@ const CartView = () => {
             handlePayPalPayment();
             setPaypalReady(true);
         }
-    }, [paypalReady, cart]); 
+    }, [paypalReady, cart]);
 
     return (
-        <div className='ml-10'>
-            <h1 className='mt-12'>Carrito de Compras</h1>
+        <div className='ml-10 '>
+            <h1 className='mt-40'>Carrito de Compras</h1>
             {cart.length === 0 ? (
                 <p>No hay productos en el carrito.</p>
             ) : (
@@ -69,7 +69,7 @@ const CartView = () => {
                     <h2 className='mt-2'>Total: ${calcularTotal()}</h2>
 
                     {/* botón de PayPal */}
-                    <div id="paypal-button-container" className='mt-1'></div>
+                    <div id="paypal-button-container" className="mt-12 max-w-full flex justify-center items-center p-2 box-border"></div>
                 </>
             )}
         </div>
