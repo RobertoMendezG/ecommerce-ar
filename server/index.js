@@ -1,10 +1,9 @@
-
 import express from "express";
 import cors from "cors";
 import mercadopago from "mercadopago"; 
 
 mercadopago.configure({
-    access_token: "TEST-4182127145425714-120508-5011efbfb1a47f4533afb1bc623524cd-2139724622",
+    access_token: "TEST-8519739731413816-112717-40190d7d1243ecad8ffa01b337bcfef8-2123095852",
 });
 
 const app = express();

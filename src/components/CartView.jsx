@@ -1,55 +1,122 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useCart } from './Cart';
 import { MdDeleteForever } from "react-icons/md";
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import axios from "axios";
-import { useState } from 'react';
 
-    const CartView = () => {
-    const { cart, quitarDelCarrito } = useCart();
+const CartView = () => {
+    const { cart, quitarDelCarrito, vaciarCarrito } = useCart();
+    const navigate = useNavigate();
+    const [preferenceId, setPreferenceId] = useState(null);  
+    const [paypalReady, setPaypalReady] = useState(false);
 
-    // Calcular el total de los productos con convercion a numero
     const calcularTotal = () => {
         return cart.reduce((total, producto) => total + Number(producto.precio), 0);
     };
-    //mercado pago
-    const [preferenceId, setPreferenceId] = useState (null)
-    initMercadoPago('TEST-946fdf90-e2f3-4891-872b-cacf05e148d8', { 
-        locale: "es-MX",
-    });
-    
-    const createPreference = async () => {
-        try {
-            // Construir los datos con los productos del carrito
-            const products = cart.map((producto) => ({
-                title: producto.nombre,
-              unit_price: parseFloat(producto.precio), 
-              quantity: 1, 
-            }));
-        
-            // Enviar los datos al backend
-            const response = await axios.post("https://ecommerce-ar-alpha.vercel.app/", {
-                items: products,
-            });
-        
-            // Obtener el ID de la preferencia (o la URL de pago)
-            const { id } = response.data;
-            return id;
-        } catch (error) {
-            console.log(error);
+
+    //----------------------mercado pago------------------------------------------
+
+    const initMercadoPagoBricks = async () => {
+        if (!window.MercadoPago) {
+            console.error("Mercado Pago no está disponible.");
+            return;
         }
-        
-    };
-    const handleBuy = async () => {
-        const id = await createPreference();
-        if (id) {
-            setPreferenceId(id);
+
+        if (!preferenceId) return;
+
+        const mp = new window.MercadoPago('TEST-946fdf90-e2f3-4891-872b-cacf05e148d8'); 
+        const bricksBuilder = mp.bricks();
+
+        try {
+            await bricksBuilder.create("wallet", "wallet_container", {
+                initialization: {
+                    preferenceId: preferenceId,
+                },
+                customization: {
+                    texts: {
+                        valueProp: 'smart_option',
+                    },
+                },
+            });
+        } catch (error) {
+            console.error("Error al inicializar el widget de Mercado Pago:", error);
         }
     };
 
+    const fetchPreferenceId = async () => {
+        try {
+            const response = await fetch("http://localhost:5174/create_preference", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: "Compra en ecommerce",
+                    unit_price: calcularTotal(),
+                    quantity: 1,
+                }),
+            });
+            const data = await response.json();
+            console.log("Preference ID recibido:", data.id);  
+            setPreferenceId(data.id);
+        } catch (error) {
+            console.error("Error al obtener el preferenceId:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchPreferenceId();
+    }, []);  
+
+    useEffect(() => {
+        if (preferenceId && window.MercadoPago) {
+            initMercadoPagoBricks();
+        }
+    }, [preferenceId]); 
+    
+    useEffect(() => {
+        if (!window.MercadoPago) {
+            console.error("El SDK de Mercado Pago no está disponible.");
+        }
+    }, []);
+    
+//----------------------PayPal-----------------------
+const handlePayPalPayment = () => {
+    const total = calcularTotal();
+    window.paypal.Buttons({
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: total.toFixed(2)
+                    }
+                }]
+            });
+        },
+        onApprove: (data, actions) => {
+            return actions.order.capture().then((details) => {
+                alert('Pago realizado con éxito por ' + details.payer.name.given_name);
+                vaciarCarrito();
+            });
+        },
+        onError: (err) => {
+            console.error('Error en el pago: ', err);
+            // muestra el alert si hay un error en el proceso de pago
+            if (cart.length > 0) {
+                alert('Ocurrió un error durante el proceso de pago.');
+            }
+        }
+    }).render('#paypal-button-container');
+};
+
+useEffect(() => {
+    if (window.paypal && !paypalReady && cart.length > 0) {
+        handlePayPalPayment();
+        setPaypalReady(true);
+    }
+}, [paypalReady, cart]);
+
+
     return (
         <div className='ml-10'>
-            <h1 className='mt-12'>Carrito de Compras</h1>
+            <h1 className='mt-40'>Carrito de Compras</h1>
             {cart.length === 0 ? (
                 <p>No hay productos en el carrito.</p>
             ) : (
@@ -65,13 +132,10 @@ import { useState } from 'react';
                         ))}
                     </ul>
                     <h2 className='mt-2'>Total: ${calcularTotal()}</h2>
-
-                    <button onClick={handleBuy}
-                        className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-3 px-2 rounded-full sm:px-3 sm:py-3 md:px-4 md:py-2 mb-10 mt-2'
-                    >
-                        Pagar ahora
-                    </button>
-                    {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />}
+                    {/* Botón Mercado Pago */}
+                    <div id="wallet_container" className="mt-5"></div>
+                    {/* botón de PayPal */}
+                    <div id="paypal-button-container" className="mt-12 max-w-full flex justify-center items-center p-2 box-border"></div>
                     
                 </>
             )}
@@ -79,4 +143,4 @@ import { useState } from 'react';
     );
 };
 
-export default CartView
+export default CartView;
