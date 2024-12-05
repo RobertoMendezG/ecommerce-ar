@@ -32,11 +32,6 @@ export const ResponsiveMenu = ({ open }) => {
                                 </Link>
                             </a></li>
                             
-                            <li> <a>
-                                <Link to={"/Login"} >
-                                    Inicia sesion
-                                </Link>
-                            </a></li>
                         </ul>
                     </div>
                 </motion.div>

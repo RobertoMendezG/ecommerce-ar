@@ -23,9 +23,8 @@ const Login = () => {
             console.log('Inicio de sesión exitoso');
             alert('Inicio de sesión exitoso');
            // Verifica si el email es denedig@gmail.com
-
         if (email === 'denedig@gmail.com') {
-            navigate('/ViewDashboard'); // Redirige a la pagina de admin
+            navigate('/ProductList'); // Redirige a la pagina de admin
 
         } else {
             navigate('/'); // Redirige a la pagina principal
