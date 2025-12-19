@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import { BannerData } from "../mockData/bannerData";
 
-
 const Banner = () => {
 
     const settings = {
@@ -49,3 +48,5 @@ const Banner = () => {
 }
 
 export default Banner;
+
+

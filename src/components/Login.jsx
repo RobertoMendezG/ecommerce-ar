@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../firebase/config';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { 
+    signInWithEmailAndPassword,
+    signInWithPopup, 
+    GoogleAuthProvider } from 'firebase/auth';
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -40,7 +42,6 @@ const Login = () => {
     };
 
     // inicio de sesion con google
-
     const handleGoogleSignIn = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
@@ -53,8 +54,6 @@ const Login = () => {
             setError(error.message);
         }
     };
-
-
 
     return (
         <>
@@ -143,3 +142,5 @@ const Login = () => {
 }
 
 export default Login;
+
+

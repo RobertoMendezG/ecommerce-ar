@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"
-import { FaUser } from "react-icons/fa";
 
 export const ResponsiveMenu = ({ open }) => {
     return <AnimatePresence mode="wait">

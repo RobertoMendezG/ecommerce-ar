@@ -2,8 +2,6 @@ import ProductEdit from "../components/ProductEdit";
 
 function ProductUpdate() {
 
-  
-
   return (
     <>
 
@@ -14,3 +12,6 @@ function ProductUpdate() {
 }
 
 export default ProductUpdate;
+
+
+

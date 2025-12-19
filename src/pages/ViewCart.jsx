@@ -2,10 +2,7 @@
 import Navbar from "../components/Navbar";
 import CartView from "../components/CartView";
 
-
 function ViewCart() {
-
-  
 
   return (
     <>
@@ -25,3 +22,7 @@ function ViewCart() {
 }
 
 export default ViewCart
+
+
+
+

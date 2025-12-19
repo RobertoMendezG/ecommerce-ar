@@ -69,7 +69,7 @@ const CartView = () => {
                     <h2 className='mt-2'>Total: ${calcularTotal()}</h2>
 
                     {/* botón de PayPal */}
-                    <div id="paypal-button-container" className="mt-12 max-w-full flex justify-center items-center p-2 box-border"></div>
+                    <div id="paypal-button-container" className="mt-12 max-w-full flex justify-center items-center box-border"></div>
                 </>
             )}
         </div>
@@ -77,3 +77,4 @@ const CartView = () => {
 };
 
 export default CartView;
+

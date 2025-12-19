@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase/config";
 import { useCart } from './Cart';
+import {toast} from "react-toastify";
 
 const Card = () => {
     const [productos, setProductos] = useState([]);
@@ -80,12 +81,12 @@ const Card = () => {
                                 )}
                             </div>
                                 {/* Botones de Acción */}
-                                <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento > 0 ? 'mb-0' : 'mb-4'}`}>
+                                <div className={`mt-5 flex flex-col sm:flex-row gap-2 ${producto.descuento} > 0 ? 'mb-0' : 'mb-4'}`}>
                                     <button 
                                         className="button-primary w-full sm:w-auto" 
                                         onClick={() => {
                                             agregarAlCarrito(producto);
-                                            alert(`${producto.nombre} agregado al carrito`);
+                                            toast.success(`${producto.nombre} agregado al carrito`);
                                         }}
                                     >
                                         Agregar al carrito
@@ -100,6 +101,7 @@ const Card = () => {
                 </div>
             </div>
         </>
+        
     );
 };
 

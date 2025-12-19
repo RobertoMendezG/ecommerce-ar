@@ -35,7 +35,6 @@ const Navbar = () => {
         }
     };
 
-
     return (
         <>
             <nav >
@@ -119,3 +118,8 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+
+
+
+

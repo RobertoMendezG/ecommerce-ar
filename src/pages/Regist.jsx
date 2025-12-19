@@ -15,3 +15,5 @@ const Regist = () => {
 }
 
 export default Regist;
+
+

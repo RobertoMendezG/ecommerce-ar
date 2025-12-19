@@ -2,11 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Product from "../components/Product";
 import ImgDetail from "../components/ImgDetail";
-
 import { useParams } from 'react-router-dom';
-
-
-
 
 function DetailProduct() {
 
@@ -34,3 +30,6 @@ function DetailProduct() {
 }
 
 export default DetailProduct;
+
+
+
