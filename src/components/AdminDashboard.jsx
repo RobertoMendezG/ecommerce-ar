@@ -56,8 +56,12 @@ const AdminDashboard = () => {
                         <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 hover:bg-gray-700">Agregar Producto</Link>
                     </li>
                     <li>
+                        <Link to="/Pedidos" onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 hover:bg-gray-700">Pedidos</Link>
+                    </li>
+                    <li>
                         <button onClick={handleLogout} className="block py-2 px-4 hover:bg-gray-700 w-full text-left">Cerrar sesión</button>
                     </li>
+                    
                 </ul>
             </nav>
 

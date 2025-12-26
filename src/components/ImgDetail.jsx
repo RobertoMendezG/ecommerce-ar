@@ -3,7 +3,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import db from "../firebase/config";
+import {db} from "../firebase/config";
 import { useParams } from "react-router-dom";
 
 const ImgDetail = ({ productId }) => {

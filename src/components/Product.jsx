@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { doc, getDoc } from "firebase/firestore";
-import db from "../firebase/config";
+import {db} from "../firebase/config";
 import { useParams } from "react-router-dom";
 import { useCart } from './Cart';
+import {toast} from "react-toastify";
 
 const Product = () => {
     const [items, setItem] = useState(null);
@@ -72,11 +73,11 @@ const Product = () => {
                                     for (let i = 0; i < cantidad; i++) {
                                         agregarAlCarrito({ ...items });
                                     }
-                                    alert(`${cantidad} x ${items.nombre} agregado(s) al carrito`);
+                                    toast.success(`${cantidad} x ${items.nombre} agregado(s) al carrito`);
                                     setCantidad(0); 
                                 } else {
                                     agregarAlCarrito({ ...items, cantidad });
-                                    alert(`${items.nombre} agregado al carrito`);
+                                    toast.success(`${items.nombre} agregado al carrito`);
                                 }
                             }}
                         >

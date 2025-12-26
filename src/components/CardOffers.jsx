@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
-import db from "../firebase/config";
+import {db} from "../firebase/config";
 import { useCart } from './Cart';
+import {toast} from "react-toastify";
 
 const CardOffers = () => {
     const [productos, setProductos] = useState([]);
@@ -87,7 +88,7 @@ const CardOffers = () => {
                                         className="button-primary w-full sm:w-auto" 
                                         onClick={() => {
                                             agregarAlCarrito(producto);
-                                            alert(`${producto.nombre} agregado al carrito`);
+                                            toast.success(`${producto.nombre} agregado al carrito`);
                                         }}
                                     >
                                         Agregar al carrito

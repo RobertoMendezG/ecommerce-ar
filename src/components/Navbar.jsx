@@ -43,7 +43,7 @@ const Navbar = () => {
                     {/*logo*/}
                     <div className="text-2xl sm:text-xl md:text-2xl lg:text-3xl flex text-white items-center gap-2 font-bold py-8 uppercase">
                         <SiDigikeyelectronics className="text-xl sm:text-lg md:text-xl lg:text-2xl" />
-                        <p className="text-sm sm:text-base md:text-lg lg:text-xl">Electronicos</p>
+                        <p className="text-sm sm:text-base md:text-lg lg:text-xl">M&G Store</p>
                     </div>
 
                     {/*menu*/}
@@ -63,8 +63,8 @@ const Navbar = () => {
                             </button>
                             </li>
                             <li><button className="incline-block py-1 px-3 hover:text-blue-800 font-semibold" href="">
-                                <Link to={"/Conocenos"} >
-                                    Conocenos
+                                <Link to={"/MisPedidos"} >
+                                    Mis Compras
                                 </Link>
                             </button>
                             </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
                                     Log out
                                 </button>
                                 <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mt-2">
-                                    {user.email}
+                                    {user.name}
                                 </span>
                             </div>
                         ) : (

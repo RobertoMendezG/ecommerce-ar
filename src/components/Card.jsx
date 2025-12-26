@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
-import db from "../firebase/config";
+import {db} from "../firebase/config";
 import { useCart } from './Cart';
 import {toast} from "react-toastify";
 
@@ -31,7 +31,7 @@ const Card = () => {
     return (
         <>
             {/* buscador */}
-            <div className="relative mt-5 bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
+            <div className="relative ml-10 mt-5 bg-gray-100 rounded-lg shadow-md sm:w-64 md:w-80">
                 <div className="flex mb-4">
                     <input
                         type="text"
